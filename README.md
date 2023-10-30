@@ -2,3 +2,5 @@
 test
 testDL
 testNN
+testDL
+JAKOZAK
