@@ -15,6 +15,7 @@ header {
 
 .title{
     margin-left:300px;
+    font-family: 'Noto Serif'
 }
 .navbar {
 
@@ -25,6 +26,7 @@ header {
     width: 400px;
     margin:10px;
     margin-right:300px;
+    font-family: 'Noto Serif'
 }
 a{
     margin:10px;
@@ -38,23 +40,14 @@ a{
 }
 
 
-footer {
-    text-align: center;
-}
 
 section {  
     justify-content:center;
     text-align: center;
+    font-family: 'Noto Serif'
 }
 
-footer {
-    padding: 20px;
-    margin: 10px;
-    display:flex;
-    color: white;
-    justify-content: space-between;
-    
-}
+
 
 .magnifier {
     background-color: #12b4f1; /* Green */
@@ -68,7 +61,7 @@ footer {
   }
 
 .magnifier:hover{
-    background-color:#f8b9f9 ;
+    background-color:#f8b9f9;
 }
 
 .searchbar{
@@ -79,9 +72,53 @@ footer {
     font-size: 16px;
     margin-left:30px;
     border-radius: 24px;
+    outline: none;
+    font-family: 'Noto Serif'
 }
+
+.searchbar:hover{
+    background-color:#f8b9f9;
+ }
 
 .search{
     display:flex;
     justify-content:center;
+    
 }
+
+footer{
+    
+    color:#12b4f1;
+    position: absolute;
+    bottom: 0;
+    width:100%;
+}
+
+.box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom:20px;
+  }
+
+  .box>* {
+    flex: 1 1 100%;
+  }
+
+  .foot1{
+    text-align: center;
+    margin-bottom:20px;
+    font-family: 'Noto Serif'
+  }
+  
+  .foot2{
+    text-align: center;
+    margin-bottom:20px;
+    font-family: 'Noto Serif'
+  }
+  
+  .foot3{
+    text-align: center;
+    font-family: 'Noto Serif'
+    
+  }

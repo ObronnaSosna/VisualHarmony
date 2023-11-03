@@ -42,7 +42,11 @@
 
 
     <footer>
-        <p>&copy; Copyright © 2023 Visual Harmony. Created by: Natalia Jezusek, Nikola Niestrój, Jacek Kozak, Daniel Łątkowski.</p>
+        <div class="box">
+            <div class="foot1">&copy; Copyright © 2023 Visual Harmony. Created by: Natalia Jezusek, Nikola Niestrój, Jacek Kozak, Daniel Łątkowski.</div>
+            <div class="foot2"><h2>VISUAL HARMONY</h2></div>
+            <div class="foot3">Regulamin Facebook Instagram</div>
+        </div>
     </footer>
 </body>
 
