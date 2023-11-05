@@ -28,7 +28,8 @@ header {
     margin-right:300px;
     font-family: 'Noto Serif'
 }
-a{
+
+a {
     margin:10px;
     color: white; 
     text-decoration: none;
@@ -39,15 +40,11 @@ a{
     font-size: 24px;
 }
 
-
-
 section {  
     justify-content:center;
     text-align: center;
     font-family: 'Noto Serif'
 }
-
-
 
 .magnifier {
     background-color: #12b4f1; /* Green */
@@ -83,13 +80,30 @@ section {
 .search{
     display:flex;
     justify-content:center;
-    
+    margin-bottom: 150px;
 }
+
+
+.column {
+    float: left;
+    width: 30%;
+    padding: 20px;
+  }
+  
+  /*Clear floats after image containers*/
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
 
 footer{
     
     color:#12b4f1;
-    position: absolute;
+    padding: 30px;
+    background-color: #030d1e;
+    position: relative;
     bottom: 0;
     width:100%;
 }
@@ -98,7 +112,8 @@ footer{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-bottom:20px;
+    margin-bottom:0px;
+    margin-top:10px;
   }
 
   .box>* {
@@ -107,18 +122,113 @@ footer{
 
   .foot1{
     text-align: center;
-    margin-bottom:20px;
     font-family: 'Noto Serif'
   }
   
   .foot2{
     text-align: center;
-    margin-bottom:20px;
     font-family: 'Noto Serif'
   }
   
   .foot3{
     text-align: center;
-    font-family: 'Noto Serif'
+    font-family: 'Noto Serif';
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom:20px;
     
   }
+
+  .regulations {
+    background-color: #12b4f1;
+    border: none;
+    border-radius: 24px;
+    transition-duration: 0.5s;
+    text-align: center;
+    font-size: 16px;
+    margin-right: 10px;
+  }
+
+  .regulations:hover{
+    background-color:#f8b9f9;
+}
+
+.facebook {
+    background-color: #12b4f1;
+    border: none;
+    border-radius: 24px;
+    transition-duration: 0.5s;
+    text-align: center;
+    font-size: 16px;
+    margin-right: 10px;
+
+  }
+
+  .facebook:hover{
+    background-color:#f8b9f9;
+}
+
+.instagram {
+    background-color: #12b4f1;
+    border: none;
+    border-radius: 24px;
+    transition-duration: 0.5s;
+    text-align: center;
+    font-size: 16px;
+    margin-right: 10px;
+  }
+
+  .instagram:hover{
+    background-color:#f8b9f9;
+}
+
+.bottom-icon{
+    display: flex;
+    margin-right: 10px;
+}
+
+.photo-icon-heart{
+    display: flex;
+    margin: 25px;
+    flex-direction: row;
+    background-color: #12b4f1;
+    border: none;
+    border-radius: 24px;
+}
+
+.photo-icon-heart:hover{
+    background-color:#f8b9f9;
+}
+
+.photo-icon-heart-dislike{
+    display: flex;
+    margin: 25px;
+    flex-direction: row;
+    background-color: #fb1d4a;
+    border: none;
+    border-radius: 24px;
+}
+
+.photo-icon-heart-dislike:hover{
+    background-color:#f8b9f9;
+}
+
+.photo-icon-comment{
+    display: flex;
+    margin: 25px;
+    flex-direction: row;
+    background-color: #861994;
+    border: none;
+    border-radius: 24px;
+}
+
+.photo-icon-comment:hover{
+    background-color:#f8b9f9;
+}
+
+h3 {
+
+font-weight: normal;
+color: #12b4f1;
+}
