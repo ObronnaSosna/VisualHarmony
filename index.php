@@ -14,9 +14,9 @@
             VISUAL HARMONY
         </h2>
         <div class="navbar">
-            <a href="#">STRONA GŁÓWNA</a>
-            <a href="#">KONTAKT</a>
-            <a href="#">LOGOWANIE</a>
+            <a href="#" class="a-menu">STRONA GŁÓWNA</a>
+            <a href="#" class="a-menu">KONTAKT</a>
+            <a href="#" class="a-menu">LOGOWANIE</a>
         </div>
     </header>
 
@@ -41,76 +41,100 @@
     <section>
         <div class="row">
             <div class="column">
-                <button class="photo-icon-heart">
-                    <img src="img/heart.png">
-                </button>
-                <button class="photo-icon-heart-dislike">
-                    <img src="img/heart-unlike.png">
-                </button>
-                <button class="photo-icon-comment">
-                    <img src="img/comment.png">
-                </button>
-                <img src="img/horse.png">
+                <div class="photobuttons">
+                    <button class="photo-icon-heart">
+                        <img class="like" src="img/heart.png">
+                    </button>
+                    <button class="photo-icon-heart-dislike">
+                        <img class="dislike" src="img/heart-unlike.png">
+                    </button>
+                    <button class="photo-icon-comment">
+                        <img class="comment" src="img/comment.png">
+                    </button>
+                </div>
+                <div class="photo">
+                    <img src="img/horse.png">
+                </div>
             </div>
             <div class="column">
-            <button class="photo-icon-heart">
-                    <img src="img/heart.png">
-                </button>
-                <button class="photo-icon-heart-dislike">
-                    <img src="img/heart-unlike.png">
-                </button>
-                <button class="photo-icon-comment">
-                    <img src="img/comment.png">
-                </button>
-                <img src="img/horse.png">
+                <div class="photobuttons">
+                    <button class="photo-icon-heart">
+                        <img class="like" src="img/heart.png">
+                    </button>
+                    <button class="photo-icon-heart-dislike">
+                        <img class="dislike" src="img/heart-unlike.png">
+                    </button>
+                    <button class="photo-icon-comment">
+                        <img class="comment" src="img/comment.png">
+                    </button>
+                </div>
+                <div class="photo">
+                    <img src="img/horse.png">
+                </div>
             </div>
             <div class="column">
-            <button class="photo-icon-heart">
-                    <img src="img/heart.png">
-                </button>
-                <button class="photo-icon-heart-dislike">
-                    <img src="img/heart-unlike.png">
-                </button>
-                <button class="photo-icon-comment">
-                    <img src="img/comment.png">
-                </button>
-                <img src="img/horse.png">
+                <div class="photobuttons">
+                    <button class="photo-icon-heart">
+                        <img class="like" src="img/heart.png">
+                    </button>
+                    <button class="photo-icon-heart-dislike">
+                        <img class="dislike" src="img/heart-unlike.png">
+                    </button>
+                    <button class="photo-icon-comment">
+                        <img class="comment" src="img/comment.png">
+                    </button>
+                </div>
+                <div>
+                    <img src="img/horse.png">
+                </div>
+            </div>
+           <div class="column">
+                <div class="photobuttons">
+                    <button class="photo-icon-heart">
+                        <img class="like" src="img/heart.png">
+                    </button>
+                    <button class="photo-icon-heart-dislike">
+                        <img class="dislike" src="img/heart-unlike.png">
+                    </button>
+                    <button class="photo-icon-comment">
+                        <img class="comment" src="img/comment.png">
+                    </button>
+                </div>
+                <div class="photo">
+                    <img src="img/horse.png">
+                </div>
             </div>
             <div class="column">
-            <button class="photo-icon-heart">
-                    <img src="img/heart.png">
-                </button>
-                <button class="photo-icon-heart-dislike">
-                    <img src="img/heart-unlike.png">
-                </button>
-                <button class="photo-icon-comment">
-                    <img src="img/comment.png">
-                </button>
-                <img src="img/horse.png">
+                <div class="photobuttons">
+                    <button class="photo-icon-heart">
+                        <img class="like" src="img/heart.png">
+                    </button>
+                    <button class="photo-icon-heart-dislike">
+                        <img class="dislike" src="img/heart-unlike.png">
+                    </button>
+                    <button class="photo-icon-comment">
+                        <img class="comment" src="img/comment.png">
+                    </button>
+                </div>
+                <div class="photo">
+                    <img src="img/horse.png">
+                </div>
             </div>
             <div class="column">
-            <button class="photo-icon-heart">
-                    <img src="img/heart.png">
-                </button>
-                <button class="photo-icon-heart-dislike">
-                    <img src="img/heart-unlike.png">
-                </button>
-                <button class="photo-icon-comment">
-                    <img src="img/comment.png">
-                </button>
-                <img src="img/horse.png">
-            </div>
-            <div class="column">
-            <button class="photo-icon-heart">
-                    <img src="img/heart.png">
-                </button>
-                <button class="photo-icon-heart-dislike">
-                    <img src="img/heart-unlike.png">
-                </button>
-                <button class="photo-icon-comment">
-                    <img src="img/comment.png">
-                </button>
-                <img src="img/horse.png">
+                <div class="photobuttons">
+                    <button class="photo-icon-heart">
+                        <img class="like" src="img/heart.png">
+                    </button>
+                    <button class="photo-icon-heart-dislike">
+                        <img class="dislike" src="img/heart-unlike.png">
+                    </button>
+                    <button class="photo-icon-comment">
+                        <img class="comment" src="img/comment.png">
+                    </button>
+                </div>
+                <div class="photo">
+                    <img src="img/horse.png">
+                </div>
             </div>
         </div>
     </section>
@@ -128,9 +152,9 @@
             </div>
             <div class="foot3">
                 <div class="bottom-icon">
-                <button class="regulations">
-                    <img src="img/regulations.png">
-                </button>
+                    <button class="regulations">
+                        <img src="img/regulations.png">
+                    </button>
                 <h3><a href="" class="footer-link">Regulamin</a></h3>
                 </div>
 
