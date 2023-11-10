@@ -1,0 +1,8 @@
+{
+    
+        "require": {
+            "linq/php-linq": "^1.0",
+            "illuminate/database": "^9.0"
+        }
+}
+
