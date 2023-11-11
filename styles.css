@@ -86,14 +86,9 @@ section {
 
 .search{
     display:flex;
-    background-color:#030c1f;
+
     justify-content:center;
-<<<<<<< HEAD
     margin-bottom: 100px;
-=======
-    padding: 50px;
-    margin-bottom: 150px;
->>>>>>> d63823cbf1b8ee9785d78d3411a17cdd7612dcd5
 }
 
 
@@ -230,8 +225,6 @@ footer{
 .comment{  
     margin-top:4px; 
 }
-
-
 
 .photo-icon-heart:hover{
     background-color:#f8b9f9;
