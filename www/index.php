@@ -14,9 +14,9 @@
             VISUAL HARMONY
         </h2>
         <div class="navbar">
-            <a href="#" class="a-menu">STRONA GŁÓWNA</a>
-            <a href="#" class="a-menu">KONTAKT</a>
-            <a href="#" class="a-menu">LOGOWANIE</a>
+            <a href="#">STRONA GŁÓWNA</a>
+            <a href="#">KONTAKT</a>
+            <a href="#">LOGOWANIE</a>
         </div>
     </header>
 
@@ -152,23 +152,23 @@
             </div>
             <div class="foot3">
                 <div class="bottom-icon">
-                    <button class="regulations">
-                        <img src="img/regulations.png">
-                    </button>
+                <button class="regulations">
+                    <img src="img/regulations.png">
+                </button>
                 <h3><a href="" class="footer-link">Regulamin</a></h3>
                 </div>
 
                 <div class="bottom-icon">
-                <button class="facebook">
+                <button class="facebook"><a href="https://www.facebook.com/profile.php?id=61553216010644" class="footer-link">
                     <img src="img/facebook.png">
-                </button>
+                </button></a>
                 <h3><a href="https://www.facebook.com/profile.php?id=61553216010644" class="footer-link">Facebook</a></h3>
                 </div>
 
                 <div class="bottom-icon">
-                <button class="instagram">
+                <button class="instagram"><a href="https://www.instagram.com/harmony.visual/" class="footer-link">
                     <img src="img/instagram.png">
-                </button>
+                </button></a>
                 <h3><a href="https://www.instagram.com/harmony.visual/" class="footer-link">Instagram</a></h3>
                 </div>
         </div>
