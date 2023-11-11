@@ -14,9 +14,9 @@
             VISUAL HARMONY
         </h2>
         <div class="navbar">
-            <a href="#">STRONA GŁÓWNA</a>
-            <a href="#">KONTAKT</a>
-            <a href="#">LOGOWANIE</a>
+            <a href="#" class="a-menu">STRONA GŁÓWNA</a>
+            <a href="#" class="a-menu">KONTAKT</a>
+            <a href="#" class="a-menu">LOGOWANIE</a>
         </div>
     </header>
 
