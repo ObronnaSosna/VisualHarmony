@@ -15,6 +15,7 @@
         </h2>
         <div class="navbar">
             <a href="#" class="a-menu">STRONA GŁÓWNA</a>
+            <a href="onas.php" class="a-menu">O NAS</a>
             <a href="#" class="a-menu">KONTAKT</a>
             <a href="#" class="a-menu">LOGOWANIE</a>
         </div>

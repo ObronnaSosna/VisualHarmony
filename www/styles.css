@@ -273,3 +273,20 @@ h3 {
     color:#f8b9f9;;
 }
 
+.o-nas {
+    font-size: 36px;
+    color: white;
+    background-color: #000;
+    padding: 20px;
+    margin-top: 50px; 
+}
+.o-nas-tresc{
+    text-align: center;
+    margin: 50px auto;
+    max-width: 800px;
+    font-size: 1.2em;
+    color: #666; 
+    line-height: 1.6;
+
+}
+
