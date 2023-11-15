@@ -22,7 +22,6 @@
             <a href="index.php" class="a-menu" title="Przejdź do strony głównej">STRONA GŁÓWNA</a>
             <a href="kontakt.php" class="a-menu" title="Skontaktuj się z nami">KONTAKT</a>
             <a href="logowanie.php" class="a-menu" title="Przejdź do strony logowania">LOGOWANIE</a>
-
         </div>
     </header>
 
@@ -56,10 +55,10 @@
             </div>
             <div class="foot3">
                 <div class="bottom-icon">
-                <button class="regulations"><a href="regulamin.php" title="Przejdź do strony z regulaminem" class="footer-link">
+                <button class="regulations"><a href="regulamin.php" title="Zobacz nasz regulamin!" class="footer-link">
                     <img src="img/regulations.png">
                 </button></a>
-                <h3><a href="regulamin.php" title="Przejdź do strony z regulaminem" class="footer-link">Regulamin</a></h3>
+                <h3><a href="regulamin.php" title="Zobacz nasz regulamin!" class="footer-link">Regulamin</a></h3>
                 </div>
 
                 <div class="bottom-icon">

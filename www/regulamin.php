@@ -14,10 +14,10 @@
             VISUAL HARMONY
         </h2>
         <div class="navbar">
-            <a href="index.php" title="Przejdź do strony głównej">STRONA GŁÓWNA</a>
-            <a href="kontakt.php" title="Skontaktuj się z nami">KONTAKT</a>
-            <a href="logowanie.php" title="Przejdź do strony logowania">LOGOWANIE</a>
-            <a href="onas.php" title="Poznaj nas">O NAS</a>
+            <a href="index.php" class="a-menu">STRONA GŁÓWNA</a>
+            <a href="onas.php" title="Poznaj nas" class="a-menu">O NAS</a>
+            <a href="kontakt.php" title="Skontaktuj się z nami" class="a-menu">KONTAKT</a>
+            <a href="logowanie.php" title="Przejdź do strony logowania" class="a-menu">LOGOWANIE</a>
         </div>
     </header>
 
@@ -34,10 +34,10 @@
             </div>
             <div class="foot3">
                 <div class="bottom-icon">
-                <button class="regulations"><a href="regulamin.php" title="Przejdź do strony z regulaminem" class="footer-link">
+                <button class="regulations"><a href="regulamin.php" title="Zobacz nasz regulamin!" class="footer-link">
                     <img src="img/regulations.png">
                 </button></a>
-                <h3><a href="regulamin.php" title="Przejdź do strony z regulaminem" class="footer-link">Regulamin</a></h3>
+                <h3><a href="regulamin.php" title="Zobacz nasz regulamin!" class="footer-link">Regulamin</a></h3>
                 </div>
 
                 <div class="bottom-icon">
