@@ -15,7 +15,7 @@ header {
 
 .title{
     margin-left:300px;
-    font-family: 'Noto Serif';
+    font-family: 'Times New Roman';
     font-weight: bold;
 }
 .navbar {
@@ -27,7 +27,7 @@ header {
     width: 600px;
     margin:10px;
     margin-right:300px;
-    font-family: 'Noto Serif'
+    font-family: 'Times New Roman'
 }
 
 .a-menu {
@@ -50,7 +50,7 @@ header {
 section {  
     justify-content:center;
     text-align: center;
-    font-family: 'Noto Serif'
+    font-family: 'Times New Roman'
 }
 
 .magnifier {
@@ -77,7 +77,7 @@ section {
     margin-left:30px;
     border-radius: 24px;
     outline: none;
-    font-family: 'Noto Serif'
+    font-family: 'Times New Roman'
 }
 
 .searchbar:hover{
@@ -139,17 +139,17 @@ footer{
 
 .foot1{
     text-align: center;
-    font-family: 'Noto Serif'
+    font-family: 'Times New Roman'
 }
   
 .foot2{
     text-align: center;
-    font-family: 'Noto Serif'
+    font-family: 'Times New Roman'
 }
   
 .foot3{
     text-align: center;
-    font-family: 'Noto Serif';
+    font-family: 'Times New Roman';
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -259,7 +259,7 @@ footer{
 h3 {
     font-weight: normal;
     color: #12b4f1;
-    font-family: 'Noto Serif';
+    font-family: 'Times New Roman'
 }
 
 
