@@ -279,13 +279,37 @@ h3 {
     background-color: #000;
     padding: 20px;
     margin-top: 50px; 
+    position: relative;
+
+    &::before,
+    &::after {
+        content: ''; /* Pusta zawartość */
+        display: block; /* Element blokowy, aby można było dostosować szerokość i inne cechy */
+        height: 5px; /* Grubość linii */
+        background-color: white; /* Kolor linii */
+        margin: 10px 0; /* Dostosuj marginesy zależnie od potrzeb */
+        width: 50%;
 }
+
+&::before {
+    left: 0;
+    transform: translateX(0);
+}
+
+&::after {
+    right: 0;
+    transform: translateX(100%);
+}
+
+}
+
+
 .o-nas-tresc{
     text-align: center;
     margin: 50px auto;
     max-width: 800px;
     font-size: 1.2em;
-    color: #666; 
+    color: whitesmoke; 
     line-height: 1.6;
 
 }
