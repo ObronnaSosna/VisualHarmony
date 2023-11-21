@@ -6,6 +6,7 @@ services:
             - "8001:80"
         volumes:
             - ./www:/var/www/html/
+            - pics:/var/www/html/pics
         links:
             - db
         networks:
@@ -15,7 +16,7 @@ services:
         ports: 
             - "3305:3306"
         environment:
-            MYSQL_DATABASE: myDb
+            MYSQL_DATABASE: vh
             MYSQL_USER: user
             MYSQL_PASSWORD: test
             MYSQL_ROOT_PASSWORD: test
@@ -35,4 +36,5 @@ services:
             MYSQL_PASSWORD: test
             MYSQL_ROOT_PASSWORD: test
 volumes:
-    persistent:
+  pics:
+  persistent:
