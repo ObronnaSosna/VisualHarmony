@@ -1,7 +1,8 @@
 CREATE TABLE comments (
     id      INTEGER NOT NULL,
     text    VARCHAR(100),
-    post_id INTEGER NOT NULL
+    post_id INTEGER NOT NULL,
+    users_id INTEGER NOT NULL
 );
 
 ALTER TABLE comments ADD CONSTRAINT comments_pk PRIMARY KEY ( id );
