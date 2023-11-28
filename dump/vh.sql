@@ -2,7 +2,9 @@ CREATE TABLE comments (
     id      INTEGER NOT NULL,
     text    VARCHAR(100),
     post_id INTEGER NOT NULL,
-    users_id INTEGER NOT NULL
+    users_id INTEGER NOT NULL,
+    upvote   INTEGER,
+    downvote INTEGER
 );
 
 ALTER TABLE comments ADD CONSTRAINT comments_pk PRIMARY KEY ( id );
@@ -29,7 +31,9 @@ CREATE TABLE posts (
     tags        VARCHAR(1000),
     `date`      DATETIME,
     user_id     INTEGER NOT NULL,
-    file_id     INTEGER NOT NULL
+    file_id     INTEGER NOT NULL,
+    upvote      INTEGER,
+    downvote    INTEGER
 );
 
 ALTER TABLE posts ADD CONSTRAINT image_pk PRIMARY KEY ( id );
