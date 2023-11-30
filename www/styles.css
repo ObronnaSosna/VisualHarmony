@@ -41,6 +41,19 @@ header {
     color:#12b4f1;
 }
 
+.photo {
+    width: 350px;
+    height: 358px;
+    overflow: hidden;
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Przycina obrazek, zachowując proporcje */
+    object-position: center; /* Ustawia pozycję obrazka */
+}
+
 
 .magnifier{
 

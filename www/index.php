@@ -44,103 +44,40 @@
 
     <section>
         <div class="row">
+    <?php
+    // Tablica z nazwami plików obrazków - w przyłości będzie tu zapytanie do bazy
+    $images = ["town.png", "music.png", "nature.png", "autumn.png", "child.png", "flower.png", "freedom.png", "gift.png", "girl.png", 
+               "horse.png", "mountain.png", "water.png", "shop.png", "ogorek.png", "paw.png", "wind.png", "rainyDay.png",
+               "casual.png", "rainyDay.png", "casual.png", "winter.png", "tatry.png", "japanGirl.png", "old.png", "wild.png", "santa.png",
+               "forest.png", "deer.png", "husky.png", "akitaxhusky.png", "castle.png", "superhero.png", "ny.png"];
+
+    // Kolumny w jednym wierszu
+    $columnsInRow = 3;
+
+    //Pętla gewnerujaca kolumny
+    for ($i = 0; $i < count($images); $i ++) {
+        if($i % $columnsInRow === 0){
+            echo '</div><div class="row">';
+        }
+    ?>
             <div class="column">
-                <div class="photobuttons">
-                    <button class="photo-icon-heart">
-                        <img class="like" src="img/heart.png">
-                    </button>
-                    <button class="photo-icon-heart-dislike">
-                        <img class="dislike" src="img/heart-unlike.png">
-                    </button>
-                    <button class="photo-icon-comment" onclick="openModal()">
-                        <img class="comment" src="img/comment.png">
-                    </button>
-                </div>
-                <div class="photo">
-                    <img src="img/horse.png">
-                </div>
+            <div class="photobuttons">
+                <button class="photo-icon-heart">
+                    <img class="like" src="img/heart.png">
+                </button>
+                <button class="photo-icon-heart-dislike">
+                    <img class="dislike" src="img/heart-unlike.png">
+                </button>
+                <button class="photo-icon-comment">
+                    <img class="comment" src="img/comment.png" onclick="openModal()">
+                </button>
             </div>
-            <div class="column">
-                <div class="photobuttons">
-                    <button class="photo-icon-heart">
-                        <img class="like" src="img/heart.png">
-                    </button>
-                    <button class="photo-icon-heart-dislike">
-                        <img class="dislike" src="img/heart-unlike.png">
-                    </button>
-                    <button class="photo-icon-comment ">
-                        <img class="comment" src="img/comment.png" onclick="openModal()">
-                    </button>
-                </div>
-                <div class="photo">
-                    <img src="img/horse.png">
-                </div>
-            </div>
-            <div class="column">
-                <div class="photobuttons">
-                    <button class="photo-icon-heart">
-                        <img class="like" src="img/heart.png">
-                    </button>
-                    <button class="photo-icon-heart-dislike">
-                        <img class="dislike" src="img/heart-unlike.png">
-                    </button>
-                    <button class="photo-icon-comment">
-                        <img class="comment" src="img/comment.png" onclick="openModal()">
-                    </button>
-                </div>
-                <div>
-                    <img src="img/horse.png">
-                </div>
-            </div>
-           <div class="column">
-                <div class="photobuttons">
-                    <button class="photo-icon-heart">
-                        <img class="like" src="img/heart.png">
-                    </button>
-                    <button class="photo-icon-heart-dislike">
-                        <img class="dislike" src="img/heart-unlike.png">
-                    </button>
-                    <button class="photo-icon-comment">
-                        <img class="comment" src="img/comment.png" onclick="openModal()">
-                    </button>
-                </div>
-                <div class="photo">
-                    <img src="img/horse.png">
-                </div>
-            </div>
-            <div class="column">
-                <div class="photobuttons">
-                    <button class="photo-icon-heart">
-                        <img class="like" src="img/heart.png">
-                    </button>
-                    <button class="photo-icon-heart-dislike">
-                        <img class="dislike" src="img/heart-unlike.png">
-                    </button>
-                    <button class="photo-icon-comment">
-                        <img class="comment" src="img/comment.png" onclick="openModal()">
-                    </button>
-                </div>
-                <div class="photo">
-                    <img src="img/horse.png">
-                </div>
-            </div>
-            <div class="column">
-                <div class="photobuttons">
-                    <button class="photo-icon-heart">
-                        <img class="like" src="img/heart.png">
-                    </button>
-                    <button class="photo-icon-heart-dislike">
-                        <img class="dislike" src="img/heart-unlike.png">
-                    </button>
-                    <button class="photo-icon-comment">
-                        <img class="comment" src="img/comment.png" onclick="openModal()">
-                    </button>
-                </div>
-                <div class="photo">
-                    <img src="img/horse.png">
-                </div>
+            <div class="photo">
+                <img src="img/<?php echo $images[$i]; ?>" alt="Picture <?php echo $i + 1; ?>">
             </div>
         </div>
+    <?php } ?>
+</div>
     </section>
 
 
