@@ -52,7 +52,7 @@
                     <button class="photo-icon-heart-dislike">
                         <img class="dislike" src="img/heart-unlike.png">
                     </button>
-                    <button class="photo-icon-comment">
+                    <button class="photo-icon-comment" onclick="openModal()">
                         <img class="comment" src="img/comment.png">
                     </button>
                 </div>
@@ -68,8 +68,8 @@
                     <button class="photo-icon-heart-dislike">
                         <img class="dislike" src="img/heart-unlike.png">
                     </button>
-                    <button class="photo-icon-comment">
-                        <img class="comment" src="img/comment.png">
+                    <button class="photo-icon-comment ">
+                        <img class="comment" src="img/comment.png" onclick="openModal()">
                     </button>
                 </div>
                 <div class="photo">
@@ -85,7 +85,7 @@
                         <img class="dislike" src="img/heart-unlike.png">
                     </button>
                     <button class="photo-icon-comment">
-                        <img class="comment" src="img/comment.png">
+                        <img class="comment" src="img/comment.png" onclick="openModal()">
                     </button>
                 </div>
                 <div>
@@ -101,7 +101,7 @@
                         <img class="dislike" src="img/heart-unlike.png">
                     </button>
                     <button class="photo-icon-comment">
-                        <img class="comment" src="img/comment.png">
+                        <img class="comment" src="img/comment.png" onclick="openModal()">
                     </button>
                 </div>
                 <div class="photo">
@@ -117,7 +117,7 @@
                         <img class="dislike" src="img/heart-unlike.png">
                     </button>
                     <button class="photo-icon-comment">
-                        <img class="comment" src="img/comment.png">
+                        <img class="comment" src="img/comment.png" onclick="openModal()">
                     </button>
                 </div>
                 <div class="photo">
@@ -133,7 +133,7 @@
                         <img class="dislike" src="img/heart-unlike.png">
                     </button>
                     <button class="photo-icon-comment">
-                        <img class="comment" src="img/comment.png">
+                        <img class="comment" src="img/comment.png" onclick="openModal()">
                     </button>
                 </div>
                 <div class="photo">
@@ -177,6 +177,30 @@
                 </div>
         </div>
     </footer>
+
+    <div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <p>Tutaj powstaną komentarze</p>
+    </div>
+</div>
+
+<script>
+    function openModal() {
+        document.getElementById('myModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+        document.getElementById('myModal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+        if (event.target === document.getElementById('myModal')) {
+            closeModal();
+        }
+    }
+</script>
+
 </body>
 
 </html>
