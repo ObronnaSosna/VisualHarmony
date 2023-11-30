@@ -181,8 +181,13 @@
     <div id="myModal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal()">&times;</span>
-        <p>Tutaj powstaną komentarze</p>
+        <p>Tutaj będą komentarze</p>
+        <form id="commentForm">
+            <textarea placeholder="Wpisz swój komentarz..." rows="4" cols="50"></textarea>
+            <button type="button" onclick="submitComment()">Dodaj komentarz</button>
+        </form>
     </div>
+</div>
 </div>
 
 <script>
@@ -198,6 +203,14 @@
         if (event.target === document.getElementById('myModal')) {
             closeModal();
         }
+    }
+
+    function submitComment() {
+        var commentText = document.querySelector("#commentForm textarea").value;
+        // Tutaj możesz przesłać komentarz do serwera lub wykonać inne akcje
+        console.log("Dodano komentarz:", commentText);
+        // Opcjonalnie możesz zamknąć modal po dodaniu komentarza
+        closeModal();
     }
 </script>
 

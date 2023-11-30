@@ -350,7 +350,6 @@ label {
     max-width: 690px;
     margin: 0 auto;
     padding: 3%;
-
     background-color: #1b1c1e;
 }
 
@@ -421,7 +420,7 @@ label {
 }
 
 .modal-content {
-    background-color: #fff;
+    background-color: rgba(1,2,14,255);
     padding: 20px;
     border-radius: 5px;
     text-align: center;
@@ -432,4 +431,27 @@ label {
     float: right;
     font-size: 28px;
     font-weight: bold;
+}
+
+
+
+#commentForm {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+#commentForm textarea {
+    resize: none;
+    margin-bottom: 10px;
+    height: 100px;
+}
+
+#commentForm button {
+    background-color: #861994;
+    color: #1b1c1e;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
