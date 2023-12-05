@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="pl">
 
-
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -72,8 +70,6 @@
                 <label for="message" class="label-contact">Wiadomość:</label>
                 <textarea name="message" id="message" cols="30" rows="10" class="textarea-contact" required></textarea>
                 <input type="submit" value="Wyślij" class="submit-contact">
-
- 
             </form>
         </div>
 
