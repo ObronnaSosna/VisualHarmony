@@ -48,10 +48,6 @@
     <br>
     <br>
     <br>
-    <br>
-    <br>
-    <br>
-    <br>
 
         <footer>
             <div class="box">
