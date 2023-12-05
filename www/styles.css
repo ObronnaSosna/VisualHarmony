@@ -407,3 +407,26 @@ label {
 .textarea-contact:focus {
     outline: 1px solid #828282;
 }
+
+.a-contact {
+    color: #828282;
+    font-family: 'Roboto', sans-serif;
+}
+
+.a-contact:hover {
+    color: #fff;
+}
+
+
+.wyslij-tresc{
+    margin-top: 200px;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    /* margin: 50px auto; */
+    max-width: 800px;
+    font-size: 1.2em;
+    color: whitesmoke; 
+    line-height: 1.6;
+
+}
