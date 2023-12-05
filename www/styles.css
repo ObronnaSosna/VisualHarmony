@@ -41,6 +41,19 @@ header {
     color:#12b4f1;
 }
 
+.photo {
+    width: 350px;
+    height: 358px;
+    overflow: hidden;
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Przycina obrazek, zachowując proporcje */
+    object-position: center; /* Ustawia pozycję obrazka */
+}
+
 
 .magnifier{
 
@@ -102,7 +115,6 @@ section {
     display:flex;
     flex-direction:column;
     justify-content: center;
-       
 }
   
 .row{
@@ -222,7 +234,8 @@ footer{
 }
 
 .comment{  
-    margin-top:4px; 
+    margin-top:4px;
+    cursor: pointer; 
 }
 
 .photo-icon-heart:hover{
@@ -350,7 +363,6 @@ label {
     max-width: 690px;
     margin: 0 auto;
     padding: 3%;
-
     background-color: #1b1c1e;
 }
 
@@ -417,7 +429,6 @@ label {
     color: #fff;
 }
 
-
 .wyslij-tresc{
     margin-top: 200px;
     text-align: left;
@@ -429,4 +440,52 @@ label {
     color: whitesmoke; 
     line-height: 1.6;
 
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: rgba(1,2,14,255);
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+
+#commentForm {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+#commentForm textarea {
+    resize: none;
+    margin-bottom: 10px;
+    height: 100px;
+}
+
+#commentForm button {
+    background-color: #861994;
+    color: #1b1c1e;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
