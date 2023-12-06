@@ -348,7 +348,10 @@ h3 {
 
 }
 
-  p {
+  .p-kontakt,
+  .p-regulamin,
+  li
+   {
     color: #d2d2d2;
 }
 
@@ -489,3 +492,14 @@ label {
     border-radius: 5px;
     cursor: pointer;
 }
+
+ .regulamin-tresc{
+    margin-top: 100px;
+    text-align: justify; 
+    margin: 50px auto;
+    max-width: 900px;
+    font-size: 1.2em;
+    color: whitesmoke; 
+    line-height: 1.6;
+} 
+
