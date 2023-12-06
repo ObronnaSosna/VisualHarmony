@@ -2,14 +2,18 @@
 $servername = "localhost";
 $username = "user";
 $password = "test";
+$database = "myDb";
 
-try{
+$conn = new mysqli($servername, $username, $password, $database);
 
-    $conn = new PDO("mysql:host = $servername, dbname = myDb", $usernam, $password);
 
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-} catch(PDOException $e){
-    echo "Conn fialed: ".$e->getMessage();
+if ($conn->connect_error) {
+    die("Nie udało się połączyć z bazą danych: " . $conn->connect_error);
 }
+
+echo "Połączenie z bazą danych udane";
+
+
+
+$conn->close();
 ?>
