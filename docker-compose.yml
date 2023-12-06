@@ -6,7 +6,7 @@ services:
             - "8001:80"
         volumes:
             - ./www:/var/www/html/
-            - pics:/var/www/html/pics
+            - ./pics:/var/www/html/pics
         links:
             - db
         networks:

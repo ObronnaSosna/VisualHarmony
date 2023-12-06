@@ -45,17 +45,20 @@
     <section>
         <div class="row">
     <?php
-    // Tablica z nazwami plików obrazków - w przyłości będzie tu zapytanie do bazy
-    $images = ["town.png", "music.png", "nature.png", "autumn.png", "child.png", "flower.png", "freedom.png", "gift.png", "girl.png", 
-               "horse.png", "mountain.png", "water.png", "shop.png", "ogorek.png", "paw.png", "wind.png", "rainyDay.png",
-               "casual.png", "rainyDay.png", "casual.png", "winter.png", "tatry.png", "japanGirl.png", "old.png", "wild.png", "santa.png",
-               "forest.png", "deer.png", "husky.png", "akitaxhusky.png", "castle.png", "superhero.png", "ny.png"];
+    $conn = mysqli_connect('db', 'user', 'test', "vh");
+    // Check connection
+    if (!$conn) {
+      die("Connection failed: " . mysqli_connect_error());
+    }
+    $result = mysqli_query($conn, 'select files.path from posts,files where posts.file_id=files.id order by posts.upvote desc;');
 
     // Kolumny w jednym wierszu
     $columnsInRow = 3;
 
     //Pętla gewnerujaca kolumny
-    for ($i = 0; $i < count($images); $i ++) {
+    //for ($i = 0; $i < mysqli_num_rows($result); $i ++) {
+    $i = 0;
+    while($row = mysqli_fetch_assoc($result)) {
         if($i % $columnsInRow === 0){
             echo '</div><div class="row">';
         }
@@ -73,10 +76,10 @@
                 </button>
             </div>
             <div class="photo">
-                <img src="img/<?php echo $images[$i]; ?>" alt="Picture <?php echo $i + 1; ?>">
+                <img src="<?php echo $row["path"]; ?>" alt="Picture <?php echo $i + 1; ?>">
             </div>
         </div>
-    <?php } ?>
+    <?php $i=$i+1;} ?>
 </div>
     </section>
 
