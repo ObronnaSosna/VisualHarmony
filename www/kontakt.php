@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="pl">
 
-
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,7 +30,7 @@
 
     <section class="kontakt-tresc">
         <h1>Kontakt</h1>
-        <p> Witaj w Visual Harmony – Twojej przeglądarkowej oazie fotografii!
+        <p class="p-kontakt"></p> Witaj w Visual Harmony – Twojej przeglądarkowej oazie fotografii!
             <br>Cieszymy się, że jesteś z nami i chcielibyśmy mieć możliwość słyszenia od Ciebie.
             <br>Bez względu na to, czy masz pytania, sugestie, czy po prostu chcesz się z nami skontaktować, jesteśmy
             tu, aby odpowiedzieć na Twoje potrzeby.</p>
@@ -41,7 +39,7 @@
             <br>contact@visualharmony.com.
             <br>Jesteśmy gotowi odpowiedzieć na wszelkie zapytania i uwagi.</p>
         <h1>Gdzie nas znaleźć?</h1>
-        <p>Visual Harmony to miejsce, w którym pasja do fotografii spotyka się z technologią.
+        <p class="p-kontakt"></p>Visual Harmony to miejsce, w którym pasja do fotografii spotyka się z technologią.
             <br>Nasza siedziba mieści się pod poniższym adresem:
             <br>Visual Harmony
             <br>ul. Fotograficzna 15
@@ -72,8 +70,6 @@
                 <label for="message" class="label-contact">Wiadomość:</label>
                 <textarea name="message" id="message" cols="30" rows="10" class="textarea-contact" required></textarea>
                 <input type="submit" value="Wyślij" class="submit-contact">
-
- 
             </form>
         </div>
 

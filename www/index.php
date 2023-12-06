@@ -49,7 +49,7 @@
     $images = ["town.png", "music.png", "nature.png", "autumn.png", "child.png", "flower.png", "freedom.png", "gift.png", "girl.png", 
                "horse.png", "mountain.png", "water.png", "shop.png", "ogorek.png", "paw.png", "wind.png", "rainyDay.png",
                "casual.png", "rainyDay.png", "casual.png", "winter.png", "tatry.png", "japanGirl.png", "old.png", "wild.png", "santa.png",
-               "forest.png", "deer.png", "husky.png", "akitaxhusky.png", "castle.png", "superhero.png", "ny.png"];
+               "forest.png", "deer.png", "husky.png", "akitaxhusky.png", "castle.png", "superhero.png", "ny.png", "skiing.png", "holiday.png", "sad.png"];
 
     // Kolumny w jednym wierszu
     $columnsInRow = 3;
