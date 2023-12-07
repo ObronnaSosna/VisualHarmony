@@ -50,7 +50,7 @@
     if (!$conn) {
       die("Connection failed: " . mysqli_connect_error());
     }
-    $result = mysqli_query($conn, 'select files.path from posts,files where posts.file_id=files.id order by posts.upvote desc;');
+    $result = mysqli_query($conn, 'select posts.id, files.path from posts,files where posts.file_id=files.id order by posts.upvote desc;');
 
     // Kolumny w jednym wierszu
     $columnsInRow = 3;
@@ -72,11 +72,11 @@
                     <img class="dislike" src="img/heart-unlike.png">
                 </button>
                 <button class="photo-icon-comment">
-                    <img class="comment" src="img/comment.png" onclick="openModal()">
+                        <img class="comment" src="img/comment.png" onclick="openModal(<?php echo $row['id']; ?>)">
                 </button>
             </div>
             <div class="photo">
-                <img src="<?php echo $row["path"]; ?>" alt="Picture <?php echo $i + 1; ?>">
+                <img src="<?php echo $row["path"]; ?>" alt="Picture <?php echo $i + 1; ?>" data-postid="<?php echo $row['id']; ?>">
             </div>
         </div>
     <?php $i=$i+1;} ?>
@@ -121,18 +121,20 @@
     <div id="myModal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal()">&times;</span>
-        <p>Tutaj będą komentarze</p>
-        <form id="commentForm">
-            <textarea placeholder="Wpisz swój komentarz..." rows="4" cols="50"></textarea>
-            <button type="button" onclick="submitComment()">Dodaj komentarz</button>
+        <div id="commentsContainer"></div>
+        <form id="commentForm" data-postid="">
+            <textarea id="commentText" placeholder="Dodaj swój komentarz"></textarea>
+            <button type="button" onclick="submitComment()">Wyślij</button>
         </form>
     </div>
-</div>
+    </div>
 </div>
 
 <script>
-    function openModal() {
+    function openModal(postId) {
         document.getElementById('myModal').style.display = 'flex';
+        loadComments(postId);
+        document.getElementById('commentForm').dataset.postid = postId;
     }
 
     function closeModal() {
@@ -145,13 +147,38 @@
         }
     }
 
-    function submitComment() {
-        var commentText = document.querySelector("#commentForm textarea").value;
-        // Tutaj możesz przesłać komentarz do serwera lub wykonać inne akcje
-        console.log("Dodano komentarz:", commentText);
-        // Opcjonalnie możesz zamknąć modal po dodaniu komentarza
-        closeModal();
+    function loadComments(postId) {
+        $.ajax({
+            url: 'loadComments.php',
+            type: 'GET',
+            data: { postId: postId },
+            success: function (response) {
+                document.getElementById('commentsContainer').innerHTML = response;
+            },
+            error: function (error) {
+                console.error('Error fetching comments:', error);
+            }
+        });
     }
+
+    function submitComment() {
+    var commentText = document.querySelector("#commentText").value;
+    var postId = document.getElementById('commentForm').dataset.postid;
+    $.ajax({
+        url: 'submitComment.php',
+        type: 'POST',
+        data: { postId: postId, commentText: commentText },
+        success: function (response) {
+            console.log('Comment saved successfully:', response.message);
+            loadComments(postId);
+        },
+        error: function (error) {
+            console.error('Error saving comment:', error);
+        }
+    });
+}
+
+
 </script>
 
 </body>
