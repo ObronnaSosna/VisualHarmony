@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&family=Ubuntu&display=swap" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 
 <body>
@@ -162,12 +163,12 @@
     }
 
     function submitComment() {
-    var commentText = document.querySelector("#commentText").value;
+    var text = document.querySelector("#commentText").value;
     var postId = document.getElementById('commentForm').dataset.postid;
     $.ajax({
         url: 'submitComment.php',
         type: 'POST',
-        data: { postId: postId, commentText: commentText },
+        data: { postId: postId, text: text },
         success: function (response) {
             console.log('Comment saved successfully:', response.message);
             loadComments(postId);
