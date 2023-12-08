@@ -21,7 +21,6 @@
         </div>
     </header>
 
-
     <section class="regulamin">
         Regulamin
     </section>
