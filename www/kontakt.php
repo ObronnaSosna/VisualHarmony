@@ -59,7 +59,7 @@
         <div class="container">
             <h1 class="contact-header">Formularz kontaktowy</h1>
             <br>
-            <p>Skontaktuj się z nami już teraz!</p>
+            <p class="p-kontakt">Skontaktuj się z nami już teraz!</p>
             <form action="submit_form.php" method="POST" class="form-contact">
                 <label for="name" class="label-contact">Imię:</label>
                 <input type="text" name="name" id="name" class="input-contact" required>
