@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&family=Ubuntu&display=swap" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 
 <body>
@@ -133,10 +133,12 @@
 
 <script>
     function openModal(postId) {
-        document.getElementById('myModal').style.display = 'flex';
+    document.getElementById('myModal').style.display = 'flex';
+    setTimeout(function() {
         loadComments(postId);
-        document.getElementById('commentForm').dataset.postid = postId;
-    }
+    }, 100);
+    document.getElementById('commentForm').dataset.postid = postId;
+}
 
     function closeModal() {
         document.getElementById('myModal').style.display = 'none';
@@ -148,36 +150,57 @@
         }
     }
 
-    function loadComments(postId) {
-        $.ajax({
-            url: 'loadComments.php',
-            type: 'GET',
-            data: { postId: postId },
-            success: function (response) {
-                document.getElementById('commentsContainer').innerHTML = response;
-            },
-            error: function (error) {
-                console.error('Error fetching comments:', error);
-            }
-        });
-    }
-
     function submitComment() {
     var text = document.querySelector("#commentText").value;
     var postId = document.getElementById('commentForm').dataset.postid;
-    $.ajax({
-        url: 'submitComment.php',
-        type: 'POST',
-        data: { postId: postId, text: text },
-        success: function (response) {
-            console.log('Comment saved successfully:', response.message);
+
+    fetch('submitComment.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams({
+            postId: postId,
+            text: text,
+        }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            console.log('Comment saved successfully:', data.message);
             loadComments(postId);
+        } else {
+            console.error('Error saving comment:', data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error saving comment:', error);
+    });
+}
+
+function loadComments(postId) {
+    $.ajax({
+        url: 'loadComments.php',
+        type: 'GET',
+        data: { postId: postId },
+        success: function (comments) {
+            var commentsContainer = document.getElementById('commentsContainer');
+            commentsContainer.innerHTML = '';
+
+            comments.forEach(function(comment) {
+                var commentElement = document.createElement('div');
+                commentElement.textContent = comment.commentText;
+                commentsContainer.appendChild(commentElement);
+            });
         },
         error: function (error) {
-            console.error('Error saving comment:', error);
+            console.error('Error fetching comments:', error);
         }
     });
 }
+
+
+
 
 
 </script>
