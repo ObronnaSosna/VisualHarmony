@@ -134,6 +134,7 @@
 <script>
     function openModal(postId) {
     document.getElementById('myModal').style.display = 'flex';
+    document.getElementById('commentText').value = '';
     setTimeout(function() {
         loadComments(postId);
     }, 100);
@@ -153,6 +154,7 @@
     function submitComment() {
     var text = document.querySelector("#commentText").value;
     var postId = document.getElementById('commentForm').dataset.postid;
+    document.getElementById('commentForm').text='';
 
     fetch('submitComment.php', {
         method: 'POST',
