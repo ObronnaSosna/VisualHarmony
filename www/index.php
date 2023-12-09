@@ -1,29 +1,9 @@
 <!DOCTYPE html>
 <html lang="pl">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moja Strona</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&family=Ubuntu&display=swap" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-</head>
-
+<?php $configs = include('config.php'); ?>
+<?php require_once(__DIR__.'/'.$configs['frame_dir'].'/head.php'); ?>
+<?php require_once(__DIR__.'/'.$configs['frame_dir'].'/topBar.php'); ?>
 <body>
-    <header>
-        <h2 class="title">
-            VISUAL HARMONY
-        </h2>
-        <div class="navbar">
-            <a href="#" title="Jesteś już na stronie głównej!" class="a-menu">STRONA GŁÓWNA</a>
-            <a href="onas.php" title="Poznaj nas" class="a-menu">O NAS</a>
-            <a href="kontakt.php" title="Skontaktuj się z nami" class="a-menu">KONTAKT</a>
-            <a href="logowanie.php" title="Przejdź do strony logowania" class="a-menu">LOGOWANIE</a>
-        </div>
-    </header>
 
     <section>
         <img class="logo" src="img/visual_logo.png">
@@ -46,7 +26,7 @@
     <section>
         <div class="row">
     <?php
-    $conn = mysqli_connect('db', 'user', 'test', "vh");
+    $conn = mysqli_connect($configs['db'], $configs['db_user'], $configs['db_pass'], $configs['db_name']);
     // Check connection
     if (!$conn) {
       die("Connection failed: " . mysqli_connect_error());
@@ -83,41 +63,6 @@
     <?php $i=$i+1;} ?>
 </div>
     </section>
-
-
-    <footer>
-        <div class="box">
-            <div class="foot1">&copy; Copyright © 2023 Visual Harmony. 
-                Created by: Natalia Jezusek, Nikola Niestrój,
-                Jacek Kozak, Daniel Łątkowski.</div>
-            <div class="foot2">
-                <br>
-                <h2>VISUAL HARMONY</h2>
-                <br>
-            </div>
-            <div class="foot3">
-                <div class="bottom-icon">
-                <button class="regulations"><a href="regulamin.php" title="Zobacz nasz regulamin!" class="footer-link">
-                    <img src="img/regulations.png">
-                </button></a>
-                <h3><a href="regulamin.php" title="Zobacz nasz regulamin!" class="footer-link">Regulamin</a></h3>
-                </div>
-
-                <div class="bottom-icon">
-                <button class="facebook"><a href="https://www.facebook.com/profile.php?id=61553216010644" class="footer-link">
-                    <img src="img/facebook.png">
-                </button></a>
-                <h3><a href="https://www.facebook.com/profile.php?id=61553216010644" class="footer-link">Facebook</a></h3>
-                </div>
-
-                <div class="bottom-icon">
-                <button class="instagram"><a href="https://www.instagram.com/harmony.visual/" class="footer-link">
-                    <img src="img/instagram.png">
-                </button></a>
-                <h3><a href="https://www.instagram.com/harmony.visual/" class="footer-link">Instagram</a></h3>
-                </div>
-        </div>
-    </footer>
 
     <div id="myModal" class="modal">
     <div class="modal-content">
@@ -156,7 +101,7 @@
     var postId = document.getElementById('commentForm').dataset.postid;
     document.getElementById('commentForm').text='';
 
-    fetch('submitComment.php', {
+    fetch('scripts/submitComment.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -182,7 +127,7 @@
 
 function loadComments(postId) {
     $.ajax({
-        url: 'loadComments.php',
+        url: 'scripts/loadComments.php',
         type: 'GET',
         data: { postId: postId },
         success: function (comments) {
@@ -201,12 +146,7 @@ function loadComments(postId) {
     });
 }
 
-
-
-
-
 </script>
-
 </body>
-
+<?php require_once(__DIR__.'/'.$configs['frame_dir'].'/footer.php'); ?>
 </html>
