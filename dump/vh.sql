@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Dec 06, 2023 at 08:43 PM
+-- Generation Time: Dec 09, 2023 at 10:14 AM
 -- Server version: 11.1.2-MariaDB-1:11.1.2+maria~ubu2204
 -- PHP Version: 8.2.8
 
@@ -35,6 +35,13 @@ CREATE TABLE `comments` (
   `upvote` int(11) DEFAULT NULL,
   `downvote` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`id`, `text`, `post_id`, `users_id`, `upvote`, `downvote`) VALUES
+(1, 'test\n', 1, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -237,6 +244,22 @@ ALTER TABLE `profiles`
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD KEY `users_logins_fk` (`login_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `profiles`
+--
+ALTER TABLE `profiles`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
