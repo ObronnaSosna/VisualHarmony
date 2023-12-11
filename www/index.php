@@ -31,7 +31,7 @@ $conn = mysqli_connect($configs['db'], $configs['db_user'], $configs['db_pass'],
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-$result = mysqli_query($conn, 'SELECT posts.id, files.path FROM posts,files WHERE posts.file_id=files.id ORDER BY posts.upvote / (posts.downvote+0.0001) DESC;');
+$result = mysqli_query($conn, 'SELECT posts.id, files.path FROM posts,files WHERE posts.file_id=files.id ORDER BY posts.upvote / (posts.downvote+1) DESC;');
 
 // Kolumny w jednym wierszu
 $columnsInRow = 3;
