@@ -25,67 +25,77 @@
 
     <section>
         <div class="row">
-    <?php
-    $conn = mysqli_connect($configs['db'], $configs['db_user'], $configs['db_pass'], $configs['db_name']);
-    // Check connection
-    if (!$conn) {
-      die("Connection failed: " . mysqli_connect_error());
+<?php
+$conn = mysqli_connect($configs['db'], $configs['db_user'], $configs['db_pass'], $configs['db_name']);
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+$result = mysqli_query($conn, 'SELECT posts.id, files.path FROM posts,files WHERE posts.file_id=files.id ORDER BY posts.upvote / (posts.downvote+0.0001) DESC;');
+
+// Kolumny w jednym wierszu
+$columnsInRow = 3;
+
+//Pętla gewnerujaca kolumny
+//for ($i = 0; $i < mysqli_num_rows($result); $i ++) {
+$i = 0;
+while($row = mysqli_fetch_assoc($result)) {
+    if($i % $columnsInRow === 0){
+        echo '</div><div class="row">';
     }
-    $result = mysqli_query($conn, 'select posts.id, files.path from posts,files where posts.file_id=files.id order by posts.upvote desc;');
-
-    // Kolumny w jednym wierszu
-    $columnsInRow = 3;
-
-    //Pętla gewnerujaca kolumny
-    //for ($i = 0; $i < mysqli_num_rows($result); $i ++) {
-    $i = 0;
-    while($row = mysqli_fetch_assoc($result)) {
-        if($i % $columnsInRow === 0){
-            echo '</div><div class="row">';
-        }
-    ?>
-            <div class="column">
-            <div class="photobuttons">
-                <button class="photo-icon-heart">
-                    <img class="like" src="img/heart.png">
-                </button>
-                <button class="photo-icon-heart-dislike">
-                    <img class="dislike" src="img/heart-unlike.png">
-                </button>
-                <button class="photo-icon-comment">
-                        <img class="comment" src="img/comment.png" onclick="openModal(<?php echo $row['id']; ?>)">
-                </button>
-            </div>
-            <div class="photo">
-                <img src="<?php echo $row["path"]; ?>" alt="Picture <?php echo $i + 1; ?>" data-postid="<?php echo $row['id']; ?>">
-            </div>
-        </div>
+?>
+    <div class="column">
+    <div class="photobuttons">
+    <button class="photo-icon-heart" onclick="like(<?php echo $row['id'];?>)">
+    <img class="like" src="img/heart.png">
+    </button>
+    <button class="photo-icon-heart-dislike" onclick="dislike(<?php echo $row['id'];?>)">
+    <img class="dislike" src="img/heart-unlike.png">
+    </button>
+    <button class="photo-icon-comment">
+    <img class="comment" src="img/comment.png" onclick="openModal(<?php echo $row['id']; ?>)">
+    </button>
+    </div>
+    <div class="photo">
+    <img src="<?php echo $row["path"]; ?>" alt="Picture <?php echo $i + 1; ?>" data-postid="<?php echo $row['id']; ?>">
+    </div>
+    </div>
     <?php $i=$i+1;} ?>
-</div>
+    </div>
     </section>
 
     <div id="myModal" class="modal">
     <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <div id="commentsContainer"></div>
-        <form id="commentForm" data-postid="">
-            <textarea id="commentText" placeholder="Dodaj swój komentarz"></textarea>
-            <button type="button" onclick="submitComment()">Wyślij</button>
-        </form>
+    <span class="close" onclick="closeModal()">&times;</span>
+    <div id="commentsContainer"></div>
+    <form id="commentForm" data-postid="">
+    <textarea id="commentText" placeholder="Dodaj swój komentarz"></textarea>
+    <button type="button" onclick="submitComment()">Wyślij</button>
+    </form>
     </div>
     </div>
-</div>
+    </div>
 
-<script>
+    <script>
     function openModal(postId) {
-    document.getElementById('myModal').style.display = 'flex';
-    document.getElementById('commentText').value = '';
-    setTimeout(function() {
-        loadComments(postId);
-    }, 100);
-    document.getElementById('commentForm').dataset.postid = postId;
-}
+        document.getElementById('myModal').style.display = 'flex';
+        document.getElementById('commentText').value = '';
+        setTimeout(function() {
+            loadComments(postId);
+        }, 100);
+        document.getElementById('commentForm').dataset.postid = postId;
+    }
+    function like(postId){
+        var formData = new FormData();
+        formData.append('postId', postId);
+        fetch('scripts/like.php', { method: 'POST', body: formData})
+    };
 
+    function dislike(postId){
+        var formData = new FormData();
+        formData.append('postId', postId);
+        fetch('scripts/dislike.php', { method: 'POST', body: formData})
+    };
     function closeModal() {
         document.getElementById('myModal').style.display = 'none';
     }
@@ -97,56 +107,56 @@
     }
 
     function submitComment() {
-    var text = document.querySelector("#commentText").value;
-    var postId = document.getElementById('commentForm').dataset.postid;
-    document.getElementById('commentForm').text='';
+        var text = document.querySelector("#commentText").value;
+        var postId = document.getElementById('commentForm').dataset.postid;
+        document.getElementById('commentForm').text='';
 
-    fetch('scripts/submitComment.php', {
+        fetch('scripts/submitComment.php', {
         method: 'POST',
-        headers: {
+            headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: new URLSearchParams({
+            body: new URLSearchParams({
             postId: postId,
-            text: text,
+                text: text,
         }),
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.status === 'success') {
-            console.log('Comment saved successfully:', data.message);
-            loadComments(postId);
-        } else {
-            console.error('Error saving comment:', data.message);
-        }
-    })
-    .catch(error => {
-        console.error('Error saving comment:', error);
-    });
-}
-
-function loadComments(postId) {
-    $.ajax({
-        url: 'scripts/loadComments.php',
-        type: 'GET',
-        data: { postId: postId },
-        success: function (comments) {
-            var commentsContainer = document.getElementById('commentsContainer');
-            commentsContainer.innerHTML = '';
-
-            comments.forEach(function(comment) {
-                var commentElement = document.createElement('div');
-                commentElement.textContent = comment.commentText;
-                commentsContainer.appendChild(commentElement);
+        })
+            .then(response => response.json())
+            .then(data => {
+            if (data.status === 'success') {
+                console.log('Comment saved successfully:', data.message);
+                loadComments(postId);
+            } else {
+                console.error('Error saving comment:', data.message);
+            }
+        })
+            .catch(error => {
+            console.error('Error saving comment:', error);
             });
-        },
-        error: function (error) {
-            console.error('Error fetching comments:', error);
-        }
-    });
-}
+    }
 
-</script>
+    function loadComments(postId) {
+        $.ajax({
+        url: 'scripts/loadComments.php',
+            type: 'GET',
+            data: { postId: postId },
+            success: function (comments) {
+                var commentsContainer = document.getElementById('commentsContainer');
+                commentsContainer.innerHTML = '';
+
+                comments.forEach(function(comment) {
+                    var commentElement = document.createElement('div');
+                    commentElement.textContent = comment.commentText;
+                    commentsContainer.appendChild(commentElement);
+                });
+            },
+            error: function (error) {
+                console.error('Error fetching comments:', error);
+            }
+    });
+    }
+
+    </script>
 </body>
 <?php require_once(__DIR__.'/'.$configs['frame_dir'].'/footer.php'); ?>
 </html>

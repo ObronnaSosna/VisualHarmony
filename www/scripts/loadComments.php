@@ -1,6 +1,7 @@
+<?php $configs = include('../config.php'); ?>
 <?php
 
-$conn = mysqli_connect('db', 'user', 'test', 'vh');
+$conn = mysqli_connect($configs['db'], $configs['db_user'], $configs['db_pass'], $configs['db_name']);
 
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
