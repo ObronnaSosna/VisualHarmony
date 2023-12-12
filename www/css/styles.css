@@ -13,22 +13,30 @@ header {
     
 }
 
+    header .invisible-space {
+        margin-right: 5px; /* Dodaj odstęp między "O" i "NAS" */
+        visibility: hidden; /* Ustaw element jako niewidoczny */
+    }
+
 .title{
     margin-left:300px;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
 }
 .navbar {
-
     justify-content: center;
     align-items: center;
     text-align: right;
     padding: 20px 0;
     width: 600px;
-    margin:10px;
-    margin-right:300px;
+    margin: 10px;
+    margin-right: 300px;
     font-family: 'Roboto', sans-serif;
 }
+
+
+
+
 
 .a-menu {
     margin:10px;
