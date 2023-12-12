@@ -12,7 +12,7 @@
         <p class="p-regulamin"> Witamy na Visual Harmony – miejscu, gdzie sztuka spotyka się z różnorodnością wśród fotografii autorów z całego świata.
             <br> Aby zapewnić pozytywne i bezpieczne środowisko dla naszej społeczności, prosimy o przestrzeganie poniższego regulaminu:</p>
         <br>
-            <h1>1.Szacunek i Kultura:</h1>
+            <h1>1.Szacunek i Kultura: </h1>
         <li>Wszyscy użytkownicy są zobowiązani do wykazywania szacunku wobec siebie nawzajem i twórców prezentujących swoje prace na stronie.</li>
         <li>Zakazane są wszelkie komentarze obraźliwe, poniżające lub szkalujące. Wspieramy konstruktywną krytykę, ale prosimy o zachowanie uprzedzeń i negatywnego tonu.</li>
         <br>
