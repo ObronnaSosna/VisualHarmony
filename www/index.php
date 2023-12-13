@@ -70,7 +70,7 @@ while($row = mysqli_fetch_assoc($result)) {
     <div id="commentsContainer"></div>
     <form id="commentForm" data-postid="">
     <textarea id="commentText" placeholder="Dodaj swój komentarz"></textarea>
-    <button type="button" onclick="submitComment()">Wyślij</button>
+    <button type="button" class="submitbutton" onclick="submitComment()">Wyślij</button>
     </form>
     </div>
     </div>
@@ -107,22 +107,34 @@ while($row = mysqli_fetch_assoc($result)) {
     }
 
     function submitComment() {
-        var text = document.querySelector("#commentText").value;
-        var postId = document.getElementById('commentForm').dataset.postid;
-        document.getElementById('commentForm').text='';
+    var text = document.querySelector("#commentText").value.trim();
+    var postId = document.getElementById('commentForm').dataset.postid;
 
-        fetch('scripts/submitComment.php', {
+    
+    if (text === '') {
+        alert('Komentarz nie może być pusty. Wprowadź treść komentarza.');
+        return;
+    }
+
+    if (text.length > 255) {
+        alert('Komentarz nie może przekraczać 255 znaków.');
+        return;
+    }
+
+    document.querySelector("#commentText").value = '';
+
+    fetch('scripts/submitComment.php', {
         method: 'POST',
-            headers: {
+        headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
         },
-            body: new URLSearchParams({
+        body: new URLSearchParams({
             postId: postId,
-                text: text,
+            text: text,
         }),
-        })
-            .then(response => response.json())
-            .then(data => {
+    })
+        .then(response => response.json())
+        .then(data => {
             if (data.status === 'success') {
                 console.log('Comment saved successfully:', data.message);
                 loadComments(postId);
@@ -130,10 +142,11 @@ while($row = mysqli_fetch_assoc($result)) {
                 console.error('Error saving comment:', data.message);
             }
         })
-            .catch(error => {
+        .catch(error => {
             console.error('Error saving comment:', error);
-            });
-    }
+        });
+}
+
 
     function loadComments(postId) {
     $.ajax({
@@ -145,10 +158,20 @@ while($row = mysqli_fetch_assoc($result)) {
             commentsContainer.innerHTML = '';
 
             comments.forEach(function (comment) {
-                var commentElement = document.createElement('div');
-                commentElement.textContent = comment.commentText;
-                commentElement.classList.add('comment-box'); // Dodaj klasę CSS do komentarza
-                commentsContainer.appendChild(commentElement);
+                var commentWrapper = document.createElement('div');
+                commentWrapper.classList.add('comment-wrapper');
+
+                var userBox = document.createElement('div');
+                userBox.classList.add('user-box');
+                userBox.textContent = 'Test user';
+                commentWrapper.appendChild(userBox);
+
+                var commentBox = document.createElement('div');
+                commentBox.classList.add('comment-box');
+                commentBox.textContent = comment.commentText;
+                commentWrapper.appendChild(commentBox);
+
+                commentsContainer.appendChild(commentWrapper);
             });
         },
         error: function (error) {
@@ -156,6 +179,7 @@ while($row = mysqli_fetch_assoc($result)) {
         }
     });
 }
+
 
     </script>
 </body>
