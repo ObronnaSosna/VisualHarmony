@@ -466,9 +466,11 @@ label {
 
 .modal-content {
     background-color: rgba(1,2,14,255);
+    margin: 15% auto;
     padding: 20px;
+    border: 1px solid #861994;
+    width: 60%;
     border-radius: 5px;
-    text-align: center;
     color: #fff;
 }
 
@@ -478,6 +480,7 @@ label {
     font-size: 30px;
     font-weight: bold;
     cursor: pointer;
+    font-weight: bold;
 }
 
 #commentForm {
@@ -490,6 +493,7 @@ label {
     resize: none;
     margin-bottom: 10px;
     height: 100px;
+    margin: 2%;
 }
 
 #commentForm button {
@@ -499,6 +503,8 @@ label {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-left: 2%;
+    margin-right: 2%;
 }
 
 .regulamin-tresc{
@@ -511,3 +517,17 @@ label {
     line-height: 1.6;
     
 } 
+
+.comment-box {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: rgba(15, 24, 32, 0.7);
+    border: none;
+    border-radius: 5px;
+}
+
+#commentsContainer {
+    max-height: 50vh;
+    overflow-y: auto;
+    margin: 2%;
+}

@@ -136,25 +136,26 @@ while($row = mysqli_fetch_assoc($result)) {
     }
 
     function loadComments(postId) {
-        $.ajax({
+    $.ajax({
         url: 'scripts/loadComments.php',
-            type: 'GET',
-            data: { postId: postId },
-            success: function (comments) {
-                var commentsContainer = document.getElementById('commentsContainer');
-                commentsContainer.innerHTML = '';
+        type: 'GET',
+        data: { postId: postId },
+        success: function (comments) {
+            var commentsContainer = document.getElementById('commentsContainer');
+            commentsContainer.innerHTML = '';
 
-                comments.forEach(function(comment) {
-                    var commentElement = document.createElement('div');
-                    commentElement.textContent = comment.commentText;
-                    commentsContainer.appendChild(commentElement);
-                });
-            },
-            error: function (error) {
-                console.error('Error fetching comments:', error);
-            }
+            comments.forEach(function (comment) {
+                var commentElement = document.createElement('div');
+                commentElement.textContent = comment.commentText;
+                commentElement.classList.add('comment-box'); // Dodaj klasę CSS do komentarza
+                commentsContainer.appendChild(commentElement);
+            });
+        },
+        error: function (error) {
+            console.error('Error fetching comments:', error);
+        }
     });
-    }
+}
 
     </script>
 </body>
