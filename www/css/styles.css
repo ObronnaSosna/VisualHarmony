@@ -50,7 +50,6 @@ header {
     height: 358px;
     overflow: hidden;
 }
-
 .photo img {
     width: 100%;
     height: 100%;
@@ -58,7 +57,15 @@ header {
     object-position: center; /* Ustawia pozycję obrazka */
 }
 
+.photo-full {
+    width: 100vh;
+    overflow: hidden;
+}
 
+.photo-full img {
+    width: 100%;
+    height: 100%;
+}
 .magnifier{
 
     font-size: 24px;

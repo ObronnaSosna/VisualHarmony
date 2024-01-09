@@ -5,44 +5,26 @@
 <?php require_once(__DIR__.'/'.$configs['frame_dir'].'/topBar.php'); ?>
 <body>
 
-    <section>
-        <img class="logo" src="img/visual_logo.png">
-    </section>
 
-    <section>
-        <div class="search">
-            <div>
-                <button class="magnifier">
-                    <img src="img/lupa.png">
-                </button>
-            </div>
-            <div>
-                <input class="searchbar" type="text" placeholder="Szukaj po tagach">
-            </div>
-        </div>
-    </section>
 
 
     <section>
         <div class="row">
 <?php
+$postId = htmlspecialchars($_GET["id"]);
 $conn = mysqli_connect($configs['db'], $configs['db_user'], $configs['db_pass'], $configs['db_name']);
 // Check connection
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-$result = mysqli_query($conn, 'SELECT posts.id, files.path FROM posts,files WHERE posts.file_id=files.id ORDER BY posts.upvote / (posts.downvote+1) DESC;');
+$query = 'SELECT posts.id, files.path FROM posts,files WHERE posts.file_id=files.id AND posts.id=?';
+$stmt = mysqli_prepare($conn, $query);
 
-// Kolumny w jednym wierszu
-$columnsInRow = 3;
+mysqli_stmt_bind_param($stmt, "i", $postId);
+mysqli_stmt_execute($stmt);
 
-//Pętla gewnerujaca kolumny
-//for ($i = 0; $i < mysqli_num_rows($result); $i ++) {
-$i = 0;
+$result = mysqli_stmt_get_result($stmt);
 while($row = mysqli_fetch_assoc($result)) {
-    if($i % $columnsInRow === 0){
-        echo '</div><div class="row">';
-    }
 ?>
     <div class="column">
     <div class="photobuttons">
@@ -56,11 +38,9 @@ while($row = mysqli_fetch_assoc($result)) {
     <img class="comment" src="img/comment.png" onclick="openModal(<?php echo $row['id']; ?>)">
     </button>
     </div>
-    <a href="<?php echo 'pic.php?id='.$row['id']?>">
-    <div class="photo" >
-    <img  src="<?php echo $row["path"]; ?>" alt="Picture <?php echo $i + 1; ?>" data-postid="<?php echo $row['id']; ?>">
+    <div class="photo-full">
+    <img src="<?php echo $row["path"]; ?>" alt="Picture <?php echo $i + 1; ?>" data-postid="<?php echo $row['id']; ?>">
     </div>
-    </a>
     </div>
     <?php $i=$i+1;} ?>
     </div>
