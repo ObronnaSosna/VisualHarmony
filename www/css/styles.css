@@ -278,6 +278,30 @@ footer{
     background-color:#f8b9f9;
 }
 
+.photo-icon-share-facebook{
+    display:inline-block;
+    margin: 25px;
+    background-color: #316FF6;
+    border: none;
+    border-radius: 24px;
+    transition-duration: 0.5s;
+}
+
+.photo-icon-share-facebook:hover{
+    background-color:#f8b9f9;
+}
+.photo-icon-share-reddit{
+    display:inline-block;
+    margin: 25px;
+    background-color: #FF4500;
+    border: none;
+    border-radius: 24px;
+    transition-duration: 0.5s;
+}
+
+.photo-icon-share-reddit:hover{
+    background-color:#f8b9f9;
+}
 h3 {
     font-weight: normal;
     color: #12b4f1;

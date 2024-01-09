@@ -24,6 +24,9 @@ mysqli_stmt_bind_param($stmt, "i", $postId);
 mysqli_stmt_execute($stmt);
 
 $result = mysqli_stmt_get_result($stmt);
+
+$actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
 while($row = mysqli_fetch_assoc($result)) {
 ?>
     <div class="column">
@@ -37,6 +40,12 @@ while($row = mysqli_fetch_assoc($result)) {
     <button class="photo-icon-comment">
     <img class="comment" src="img/comment.png" onclick="openModal(<?php echo $row['id']; ?>)">
     </button>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $actual_link?>" target="_blank" class=photo-icon-share-facebook title="Share on Facebook">
+    <img class="comment" src="img/facebook.png">
+    <a href="https://reddit.com/submit?url=<?php echo $actual_link?> onclick="window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" title="Share on Reddit" rel="noopener" class=photo-icon-share-reddit >
+    <img class="comment" src="img/reddit.png">
+</a>
+    </a>
     </div>
     <div class="photo-full">
     <img src="<?php echo $row["path"]; ?>" alt="Picture <?php echo $i + 1; ?>" data-postid="<?php echo $row['id']; ?>">
