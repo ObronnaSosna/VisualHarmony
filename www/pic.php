@@ -46,6 +46,10 @@ while($row = mysqli_fetch_assoc($result)) {
     <img class="comment" src="img/reddit.png">
 </a>
     </a>
+    </button>
+    <button class="photo-icon-warning" title="Zgłoś post" onclick="warning(<?php echo $row['id'];?>)">
+    <img class="warning" src="img/warning.png">
+    </button>
     </div>
     <div class="photo-full">
     <img src="<?php echo $row["path"]; ?>" alt="Picture <?php echo $i + 1; ?>" data-postid="<?php echo $row['id']; ?>">
@@ -65,7 +69,25 @@ while($row = mysqli_fetch_assoc($result)) {
     </form>
     </div>
     </div>
+
+    <div id="warningModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModalw()">&times;</span>
+        <div>
+            <label class="optionlabel">Zgłoś post</label>
+            <div class="options-list">
+                <button class="option" onclick="selectOption('opcja1')">Mowa nienawiści lub zakazane symbole</button>
+                <button class="option" onclick="selectOption('opcja2')">Przemoc lub niebezpieczne organizacje</button>
+                <button class="option" onclick="selectOption('opcja3')">Nękanie lub prześladowanie</button>
+                <button class="option" onclick="selectOption('opcja4')">To spam</button>
+                <button class="option" onclick="selectOption('opcja5')">Nagość lub aktywność seksualna</button>
+                <button class="option" onclick="selectOption('opcja6')">Scam lub oszustwo</button>
+                <button class="option" onclick="selectOption('opcja7')">Fałszywe informacje</button>
+            </div>
+        </div>
+        <button type="button" class="submitbutton" onclick="submitReport()">Zgłoś</button>
     </div>
+</div>
 
     <script>
     function openModal(postId) {
@@ -76,6 +98,17 @@ while($row = mysqli_fetch_assoc($result)) {
         }, 100);
         document.getElementById('commentForm').dataset.postid = postId;
     }
+
+    function warning(postId) {
+        document.getElementById('warningModal').style.display = 'flex';
+        document.getElementById('options').value = 'opcja1';
+        setTimeout(function() {
+            loadComments(postId);
+        }, 100);
+        document.getElementById('commentForm').dataset.postid = postId;
+    }
+
+
     function like(postId){
         var formData = new FormData();
         formData.append('postId', postId);
@@ -94,6 +127,16 @@ while($row = mysqli_fetch_assoc($result)) {
     window.onclick = function(event) {
         if (event.target === document.getElementById('myModal')) {
             closeModal();
+        }
+    }
+
+    function closeModalw() {
+        document.getElementById('warningModal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+        if (event.target === document.getElementById('warningModal')) {
+            closeModalw();
         }
     }
 
