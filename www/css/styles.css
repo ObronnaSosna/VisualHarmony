@@ -14,8 +14,8 @@ header {
 }
 
     header .invisible-space {
-        margin-right: 5px; /* Dodaj odstęp między "O" i "NAS" */
-        visibility: hidden; /* Ustaw element jako niewidoczny */
+        margin-right: 5px; 
+        visibility: hidden; 
     }
 
 .title{
@@ -53,8 +53,8 @@ header {
 .photo img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Przycina obrazek, zachowując proporcje */
-    object-position: center; /* Ustawia pozycję obrazka */
+    object-fit: cover; 
+    object-position: center;
 }
 
 .photo-full {
@@ -343,11 +343,11 @@ h3 {
 
     &::before,
     &::after {
-        content: ''; /* Pusta zawartość */
-        display: block; /* Element blokowy, aby można było dostosować szerokość i inne cechy */
-        height: 5px; /* Grubość linii */
-        background-color: white; /* Kolor linii */
-        margin: 10px 0; /* Dostosuj marginesy zależnie od potrzeb */
+        content: ''; 
+        display: block; 
+        height: 5px; 
+        background-color: white; 
+        margin: 10px 0
         width: 50%;
 }
 

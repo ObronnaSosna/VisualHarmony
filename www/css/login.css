@@ -1,0 +1,25 @@
+body {
+    color: white;
+}
+
+.container {
+    text-align: center;
+    border: 2px solid purple;
+    padding: 20px;
+}
+
+.form-container {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+    .form-container label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .form-container input {
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+    }
