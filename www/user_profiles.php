@@ -27,7 +27,7 @@
                     }
                     ?>
                     
-                    <img src="../pics/horse.png"/>
+                    <img src="../pics/avatar_vh.jpg"/>
                 </div>
                 <div class="user_info_bar_names"> 
                     <h1 class="user_name"><?php echo $user; ?>LensLegend</h1>
