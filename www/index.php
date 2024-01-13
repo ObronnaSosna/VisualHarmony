@@ -33,17 +33,16 @@ $conn = mysqli_connect($configs['db'], $configs['db_user'], $configs['db_pass'],
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-
-
-
-
-
-$tags = htmlspecialchars($_GET["tags"]);
-$tags = mysqli_escape_string($conn,$tags);
-$tags = explode(' ',$tags);
+if(isset($_GET["tags"])){
+    $tags = htmlspecialchars($_GET["tags"]);
+    $tags = mysqli_escape_string($conn,$tags);
+    $tags = explode(' ',$tags);
+}
 $query = 'SELECT posts.id, files.path FROM posts,files WHERE posts.file_id=files.id ';
-foreach($tags as $tag){
-    $query .= 'AND posts.tags LIKE "%'.$tag.'%" ';
+if(isset($_GET["tags"])){
+    foreach($tags as $tag){
+        $query .= 'AND posts.tags LIKE "%'.$tag.'%" ';
+    }
 }
 $query .= 'ORDER BY posts.upvote / (posts.downvote+1) DESC;';
     //echo $query;
