@@ -13,7 +13,7 @@
     <form action="index.php" method="GET">
         <div class="search">
             <div>
-                <button class="magnifier">
+                <button id='search' class="magnifier">
                     <img src="img/lupa.png">
                 </button>
             </div>
@@ -198,7 +198,11 @@ while($row = mysqli_fetch_assoc($result)) {
         }
     });
 }
-
+$(document).keypress(function(e){
+    if (e.which == 13){
+        $("#search").click();
+    }
+});
 
     </script>
 </body>
