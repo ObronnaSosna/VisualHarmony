@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="pl">
 <?php require_once(__DIR__.'/frame/head.php'); ?>
@@ -10,7 +11,7 @@
 <body>
     <div class="container">
         <h2>Logowanie</h2>
-        <form id="loginForm" class="form-container" action="login_process.php" method="post">
+        <form id="loginForm" class="form-container" action="scripts/login_process.php" method="post">
             <label for="username">Nazwa uzytkownika:</label>
             <input type="text" name="username" required>
 
@@ -22,7 +23,7 @@
         </form>
 
         <!-- Formularz rejestracji - ukryty na pocz¹tku -->
-        <form id="registerForm" class="form-container" action="register_process.php" method="post" style="display: none;">
+        <form id="registerForm" class="form-container" action="scripts/register_process.php" method="post" style="display: none;">
             <label for="newUsername">Nowa nazwa uzytkownika:</label>
             <input type="text" name="newUsername" required>
 
