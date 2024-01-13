@@ -56,7 +56,7 @@ while($row = mysqli_fetch_assoc($result)) {
     <img src="<?php echo $row["path"]; ?>" alt="Picture <?php echo $i + 1; ?>" data-postid="<?php echo $row['id']; ?>">
     </div>
     </div>
-    <?php $i=$i+1;} ?>
+    <?php } ?>
     </div>
     </section>
 
