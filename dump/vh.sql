@@ -97,25 +97,6 @@ INSERT INTO `files` (`id`, `path`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `logins`
---
-
-CREATE TABLE `logins` (
-  `id` int(11) NOT NULL,
-  `user` varchar(100) DEFAULT NULL,
-  `password` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `logins`
---
-
-INSERT INTO `logins` (`id`, `user`, `password`) VALUES
-(1, 'test', 'test');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `posts`
 --
 
@@ -190,15 +171,15 @@ CREATE TABLE `profiles` (
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `login_id` int(11) NOT NULL
+  `user` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
-
-INSERT INTO `users` (`id`, `login_id`) VALUES
-(1, 1);
+INSERT INTO `users` (`id`, `user`, `password`) VALUES
+(1,'test','1234');
 
 --
 -- Indexes for dumped tables
@@ -220,8 +201,6 @@ ALTER TABLE `files`
 --
 -- Indexes for table `logins`
 --
-ALTER TABLE `logins`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `posts`
@@ -242,8 +221,7 @@ ALTER TABLE `profiles`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `users_logins_fk` (`login_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -259,6 +237,9 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `profiles`
 --
 ALTER TABLE `profiles`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -284,12 +265,9 @@ ALTER TABLE `posts`
 ALTER TABLE `profiles`
   ADD CONSTRAINT `profiles_users_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
---
--- Constraints for table `users`
---
-ALTER TABLE `users`
-  ADD CONSTRAINT `users_logins_fk` FOREIGN KEY (`login_id`) REFERENCES `logins` (`id`);
-COMMIT;
+
+
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
