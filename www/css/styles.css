@@ -303,6 +303,18 @@ footer{
     background-color:#f8b9f9;
 }
 
+.photo-icon-share-twitter{
+    display:inline-block;
+    margin: 25px;
+    background-color: #1DA1F2;
+    border: none;
+    border-radius: 24px;
+    transition-duration: 0.5s;
+}
+
+.photo-icon-share-twitter:hover{
+    background-color:#f8b9f9;
+}
 .photo-icon-warning{
     display:inline-block;
     margin: 25px;

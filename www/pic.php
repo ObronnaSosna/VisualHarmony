@@ -44,9 +44,10 @@ while($row = mysqli_fetch_assoc($result)) {
     <img class="comment" src="img/facebook.png">
     <a href="https://reddit.com/submit?url=<?php echo $actual_link?> onclick="window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" title="Share on Reddit" rel="noopener" class=photo-icon-share-reddit >
     <img class="comment" src="img/reddit.png">
-</a>
     </a>
-    </button>
+    <a href="https://twitter.com/intent/tweet?text=<?php echo $actual_link?>" class=photo-icon-share-twitter title="Tweet">
+    <img class="comment" src="img/twitter.png">
+    </a>
     <button class="photo-icon-warning" title="Zgłoś post" onclick="warning(<?php echo $row['id'];?>)">
     <img class="warning" src="img/warning.png">
     </button>
