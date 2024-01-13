@@ -10,6 +10,7 @@
     </section>
 
     <section>
+    <form action="index.php" method="GET">
         <div class="search">
             <div>
                 <button class="magnifier">
@@ -17,9 +18,10 @@
                 </button>
             </div>
             <div>
-                <input class="searchbar" type="text" placeholder="Szukaj po tagach">
+                <input name='tags' class="searchbar" type="text" placeholder="Szukaj po tagach">
             </div>
         </div>
+        </form>
     </section>
 
 
@@ -31,7 +33,23 @@ $conn = mysqli_connect($configs['db'], $configs['db_user'], $configs['db_pass'],
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-$result = mysqli_query($conn, 'SELECT posts.id, files.path FROM posts,files WHERE posts.file_id=files.id ORDER BY posts.upvote / (posts.downvote+1) DESC;');
+
+
+
+
+
+$tags = htmlspecialchars($_GET["tags"]);
+$tags = mysqli_escape_string($conn,$tags);
+$tags = explode(' ',$tags);
+$query = 'SELECT posts.id, files.path FROM posts,files WHERE posts.file_id=files.id ';
+foreach($tags as $tag){
+    $query .= 'AND posts.tags LIKE "%'.$tag.'%" ';
+}
+$query .= 'ORDER BY posts.upvote / (posts.downvote+1) DESC;';
+    //echo $query;
+
+$result = mysqli_query($conn, $query);
+
 
 // Kolumny w jednym wierszu
 $columnsInRow = 3;
