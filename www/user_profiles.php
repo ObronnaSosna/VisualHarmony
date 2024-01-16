@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="pl">
 
@@ -30,13 +31,8 @@
                     <img src="../pics/avatar_vh.jpg"/>
                 </div>
                 <div class="user_info_bar_names"> 
-                    <h1 class="user_name"><?php echo $user; ?>LensLegend</h1>
-                    <p class="green"><?php 
-                                        if($row["users_user_type"]==2){
-                                            echo 'Admin';
-                                        }else{
-                                            echo 'Member';
-                                        }?></p>
+                    <h1 class="user_name"><?php echo $_SESSION['username']; ?></h1>
+                   
                 </div>
                 <div class="user_info_bar_stats">
                     <div class="icon_numbers"><i class="far fa-heart" title="Likes"></i><span>121</span></div>
@@ -52,23 +48,11 @@
 
     <section class="user_photo_container">
         <div class="info">No content yet.</div>
+        <p></p>
+        <button>Test</button>
     </section>
-
-    <div class="change_avatar_popup">  
-        <div class="change_avatar_popup_content">
-            <div class="change_avatar_popup_content_close"><i id="edit_photo_close" class="fas fa-times"></i></div>
-
-            <img src="./img/avatar/<?php echo $row['users_user_avatar']?>.png"/>
-
-            <form action="./php/upload_avatar.php" enctype="multipart/form-data" method="POST" id="usertable">
-                <label for="file-upload" class="custom-file-upload">
-                <i class="fa fa-cloud-upload"></i><span> Upload Avatar [png]</span>
-                </label>
-                <input id="file-upload" name="file" type="file"/>
-                <input id="btncom5" name="submit" type="submit" value="Save" />
-            </form>
-        </div>
-    </div>
+                    
+ 
     </body>
     <?php require_once(__DIR__.'/frame/footer.php'); ?>
 </html>
