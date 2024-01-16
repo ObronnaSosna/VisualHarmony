@@ -657,6 +657,15 @@ label {
     background-color: #ddd;
 }
 
+.option.selected:hover {
+    background-color: #ddd;
+    color: rgba(15, 24, 32, 0.7);
+}
+
+.options-list .option.selected{
+    color: rgba(15, 24, 32, 0.7);
+}
+
 .optionlabel{
     text-align: center;
     width: 100%;

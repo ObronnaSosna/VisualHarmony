@@ -78,13 +78,13 @@ while($row = mysqli_fetch_assoc($result)) {
         <div>
             <label class="optionlabel">Zgłoś post</label>
             <div class="options-list">
-                <button class="option" onclick="selectOption('opcja1')">Mowa nienawiści lub zakazane symbole</button>
-                <button class="option" onclick="selectOption('opcja2')">Przemoc lub niebezpieczne organizacje</button>
-                <button class="option" onclick="selectOption('opcja3')">Nękanie lub prześladowanie</button>
-                <button class="option" onclick="selectOption('opcja4')">To spam</button>
-                <button class="option" onclick="selectOption('opcja5')">Nagość lub aktywność seksualna</button>
-                <button class="option" onclick="selectOption('opcja6')">Scam lub oszustwo</button>
-                <button class="option" onclick="selectOption('opcja7')">Fałszywe informacje</button>
+            <button class="option" data-option="opcja1" onclick="selectOption('opcja1')">Mowa nienawiści lub zakazane symbole</button>
+            <button class="option" data-option="opcja2" onclick="selectOption('opcja2')">Przemoc lub niebezpieczne organizacje</button>
+            <button class="option" data-option="opcja3" onclick="selectOption('opcja3')">Nękanie lub prześladowanie</button>
+            <button class="option" data-option="opcja4" onclick="selectOption('opcja4')">To spam</button>
+            <button class="option" data-option="opcja5" onclick="selectOption('opcja5')">Nagość lub aktywność seksualna</button>
+            <button class="option" data-option="opcja6" onclick="selectOption('opcja6')">Scam lub oszustwo</button>
+            <button class="option" data-option="opcja7" onclick="selectOption('opcja7')">Fałszywe informacje</button>
             </div>
         </div>
         <button type="button" class="submitbutton" onclick="submitReport()">Zgłoś</button>
@@ -110,6 +110,18 @@ while($row = mysqli_fetch_assoc($result)) {
         document.getElementById('commentForm').dataset.postid = postId;
     }
 
+    function selectOption(option) {
+    var selectedButton = document.querySelector('.options-list .option.selected');
+    if (selectedButton) {
+        selectedButton.classList.remove('selected');
+    }
+
+    var button = document.querySelector('.options-list .option[data-option="' + option + '"]');
+    if (button) {
+        button.classList.add('selected');
+        document.getElementById('options').value = option;
+    }
+}
 
     function like(postId){
         var formData = new FormData();
