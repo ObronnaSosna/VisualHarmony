@@ -1480,6 +1480,7 @@ input[type="file"] {
   height: 75vh;
   background-color: #181818;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-weight: 600;    
