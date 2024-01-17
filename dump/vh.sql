@@ -46,6 +46,25 @@ INSERT INTO `comments` (`id`, `text`, `post_id`, `users_id`, `upvote`, `downvote
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `reports`
+--
+
+CREATE TABLE reports (
+  id int(11) NOT NULL,
+  title varchar(255) DEFAULT NULL,
+  post_id int(11) NOT NULL,
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `reports`
+--
+
+INSERT INTO `reports` (`id`, `title`, `post_id`) VALUES
+(1, 'test', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `files`
 --
 
@@ -193,6 +212,13 @@ ALTER TABLE `comments`
   ADD KEY `comments_posts_fk` (`post_id`);
 
 --
+-- Indexes for table `reports`
+--
+ALTER TABLE `reports`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `reports_posts_fk` (`post_id`);
+
+--
 -- Indexes for table `files`
 --
 ALTER TABLE `files`
@@ -251,6 +277,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `comments`
   ADD CONSTRAINT `comments_posts_fk` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`);
+
+--
+-- Constraints for table `comments`
+--
+ALTER TABLE `reports`
+  ADD CONSTRAINT `reports_posts_fk` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`);
 
 --
 -- Constraints for table `posts`
