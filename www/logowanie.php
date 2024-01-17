@@ -39,14 +39,18 @@
     </div>
 
     <script>
-        function switchForm() {
+        function switchForm() 
+        {
             var loginForm = document.getElementById('loginForm');
             var registerForm = document.getElementById('registerForm');
 
-            if (loginForm.style.display === 'block' || loginForm.style.display === '') {
+            if (loginForm.style.display === 'block' || loginForm.style.display === '') 
+            {
                 loginForm.style.display = 'none';
                 registerForm.style.display = 'block';
-            } else {
+            } 
+            else 
+            {
                 loginForm.style.display = 'block';
                 registerForm.style.display = 'none';
             }
