@@ -1283,7 +1283,9 @@ section {
   background-color: #000;
   position: relative;
 }
-
+.content-photos{
+  margin-top: 100;
+}
 .background_photo {
   min-width: 100%;
   min-height: 30vh;
@@ -1491,6 +1493,22 @@ input[type="file"] {
   color: #fff;
   font-size: 3rem;
 }
+
+/* .submit-photo {
+  height: 100px;
+  width: 200px;
+  background-color: #3498db; 
+  color: #ffffff; 
+
+
+  &:hover {
+    background-color: #2980b9; 
+  }
+  &:active {
+    background-color: #2c3e50; 
+  }
+} */
+
 
 
 /* =================================== logowanie rejestracja ===============================*/
