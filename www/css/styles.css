@@ -536,6 +536,10 @@ label {
     margin-right: -50px; /* Przesunięcie przycisku X poza obszar okna modalnego */
 }
 
+#reportForm {
+    display: flex;
+    margin: 0 auto;
+}
 
 #commentForm {
     display: flex;

@@ -49,7 +49,7 @@ while($row = mysqli_fetch_assoc($result)) {
     <a href="https://twitter.com/intent/tweet?text=<?php echo $actual_link?>" class=photo-icon-share-twitter title="Tweet">
     <img class="comment" src="img/twitter.png">
     </a>
-    <button class="photo-icon-warning" title="Zgłoś post" onclick="warning(<?php echo $row['id'];?>)">
+    <button class="photo-icon-warning" title="Zgłoś post" onclick="report(<?php echo $row['id'];?>)">
     <img class="warning" src="img/warning.png">
     </button>
     </div>
@@ -72,19 +72,21 @@ while($row = mysqli_fetch_assoc($result)) {
     </div>
     </div>
 
-    <div id="warningModal" class="modal">
+    <div id="reportModal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModalw()">&times;</span>
         <div>
             <label class="optionlabel">Zgłoś post</label>
             <div class="options-list">
-            <button class="option" data-option="opcja1" onclick="selectOption('opcja1')">Mowa nienawiści lub zakazane symbole</button>
-            <button class="option" data-option="opcja2" onclick="selectOption('opcja2')">Przemoc lub niebezpieczne organizacje</button>
-            <button class="option" data-option="opcja3" onclick="selectOption('opcja3')">Nękanie lub prześladowanie</button>
-            <button class="option" data-option="opcja4" onclick="selectOption('opcja4')">To spam</button>
-            <button class="option" data-option="opcja5" onclick="selectOption('opcja5')">Nagość lub aktywność seksualna</button>
-            <button class="option" data-option="opcja6" onclick="selectOption('opcja6')">Scam lub oszustwo</button>
-            <button class="option" data-option="opcja7" onclick="selectOption('opcja7')">Fałszywe informacje</button>
+            <form id="reportForm" data-postid="">
+                <button type="button" class="option" data-option="opcja1" onclick="selectOption('opcja1')">Mowa nienawiści lub zakazane symbole</button>
+                <button type="button" class="option" data-option="opcja2" onclick="selectOption('opcja2')">Przemoc lub niebezpieczne organizacje</button>
+                <button type="button" class="option" data-option="opcja3" onclick="selectOption('opcja3')">Nękanie lub prześladowanie</button>
+                <button type="button" class="option" data-option="opcja4" onclick="selectOption('opcja4')">To spam</button>
+                <button type="button" class="option" data-option="opcja5" onclick="selectOption('opcja5')">Nagość lub aktywność seksualna</button>
+                <button type="button" class="option" data-option="opcja6" onclick="selectOption('opcja6')">Scam lub oszustwo</button>
+                <button type="button" class="option" data-option="opcja7" onclick="selectOption('opcja7')">Fałszywe informacje</button>
+            </form>
             </div>
         </div>
         <button type="button" class="submitbutton" onclick="submitReport()">Zgłoś</button>
@@ -101,13 +103,13 @@ while($row = mysqli_fetch_assoc($result)) {
         document.getElementById('commentForm').dataset.postid = postId;
     }
 
-    function warning(postId) {
-        document.getElementById('warningModal').style.display = 'flex';
-        document.getElementById('options').value = 'opcja1';
-        setTimeout(function() {
+    function report(postId) {
+        document.getElementById('reportModal').style.display = 'flex';
+        selectOption('opcja1');
+        setTimeout(function () {
             loadComments(postId);
         }, 100);
-        document.getElementById('commentForm').dataset.postid = postId;
+        document.getElementById('reportForm').dataset.postid = postId;
     }
 
     function selectOption(option) {
@@ -119,8 +121,36 @@ while($row = mysqli_fetch_assoc($result)) {
     var button = document.querySelector('.options-list .option[data-option="' + option + '"]');
     if (button) {
         button.classList.add('selected');
-        document.getElementById('options').value = option;
     }
+    }
+
+    function submitReport() {
+    var reportTitle = document.querySelector(".option.selected").textContent.trim();
+    var postId = document.getElementById('reportForm').dataset.postid;
+
+    fetch('scripts/submitReport.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams({
+            reportTitle: reportTitle,
+            postId: postId,
+        }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Handle the response as needed
+        console.log(data);
+
+        // Zamknij modal po pomyślnym zgłoszeniu
+        if (data.status === 'success') {
+            closeModalw();
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
 }
 
     function like(postId){
@@ -145,11 +175,11 @@ while($row = mysqli_fetch_assoc($result)) {
     }
 
     function closeModalw() {
-        document.getElementById('warningModal').style.display = 'none';
+        document.getElementById('reportModal').style.display = 'none';
     }
 
     window.onclick = function(event) {
-        if (event.target === document.getElementById('warningModal')) {
+        if (event.target === document.getElementById('reportModal')) {
             closeModalw();
         }
     }
