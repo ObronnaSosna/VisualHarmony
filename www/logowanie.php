@@ -38,24 +38,27 @@
         </form>
     </div>
 
-    <script>
-        function switchForm() 
-        {
-            var loginForm = document.getElementById('loginForm');
-            var registerForm = document.getElementById('registerForm');
+<script>
+    function switchForm() 
+    {
+        var loginForm = document.getElementById('loginForm');
+        var registerForm = document.getElementById('registerForm');
+        var headerText = document.querySelector('.container h2');
 
-            if (loginForm.style.display === 'block' || loginForm.style.display === '') 
-            {
-                loginForm.style.display = 'none';
-                registerForm.style.display = 'block';
-            } 
-            else 
-            {
-                loginForm.style.display = 'block';
-                registerForm.style.display = 'none';
-            }
+        if (loginForm.style.display === 'block' || loginForm.style.display === '') 
+        {
+            loginForm.style.display = 'none';
+            registerForm.style.display = 'block';
+            headerText.textContent = 'Nowe Konto';
+        } 
+        else 
+        {
+            loginForm.style.display = 'block';
+            registerForm.style.display = 'none';
+            headerText.textContent = 'Logowanie';
         }
-    </script>
+    }
+</script>
 </body>
 <?php require_once(__DIR__.'/frame/footer.php'); ?>
 </html>

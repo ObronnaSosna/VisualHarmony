@@ -1,5 +1,10 @@
 <header>
     <h2 class="title">
+    <style>
+    .title {
+        color: black;
+    }
+</style>
         VISUAL HARMONY
     </h2>
     <div class="navbar">
