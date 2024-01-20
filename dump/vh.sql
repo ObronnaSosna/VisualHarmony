@@ -49,10 +49,10 @@ INSERT INTO `comments` (`id`, `text`, `post_id`, `users_id`, `upvote`, `downvote
 -- Table structure for table `reports`
 --
 
-CREATE TABLE reports (
+CREATE TABLE `reports` (
   id int(11) NOT NULL,
   title varchar(255) DEFAULT NULL,
-  post_id int(11) NOT NULL,
+  post_id int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
