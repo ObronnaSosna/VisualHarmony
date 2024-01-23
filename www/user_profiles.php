@@ -42,8 +42,8 @@
 
             </div>
             <div class="user_info_bar_stats">
-                <div class="icon_numbers"><i class="far fa-heart" title="Likes"></i><span>121</span></div>
-                <div class="icon_numbers"><i class="far fa-comments" title="Comments"></i><span>53</span></div>
+                <div class="icon_numbers"><i class="far fa-heart" title="Likes"></i><span>0</span></div>
+                <div class="icon_numbers"><i class="far fa-comments" title="Comments"></i><span>0</span></div>
                 <div class="icon_numbers"><i class="far fa-star" title="Favourites"></i><span>0</span></div>
             </div>
         </div>
