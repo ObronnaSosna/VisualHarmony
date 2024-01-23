@@ -1488,6 +1488,10 @@ input[type="file"] {
   font-weight: 600;    
 }
 
+/* .userinfo {
+  color-scheme: #fff;
+} */
+
 .info {
   text-transform: uppercase;
   color: #fff;
