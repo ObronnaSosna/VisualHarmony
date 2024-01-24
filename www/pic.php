@@ -140,10 +140,8 @@ while($row = mysqli_fetch_assoc($result)) {
     })
     .then(response => response.json())
     .then(data => {
-        // Handle the response as needed
         console.log(data);
 
-        // Zamknij modal po pomyślnym zgłoszeniu
         if (data.status === 'success') {
             closeModalw();
         }

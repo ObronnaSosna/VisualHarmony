@@ -50,9 +50,9 @@ INSERT INTO `comments` (`id`, `text`, `post_id`, `users_id`, `upvote`, `downvote
 --
 
 CREATE TABLE `reports` (
-  id int(11) NOT NULL,
-  title varchar(255) DEFAULT NULL,
-  post_id int(11) NOT NULL
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `post_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -258,6 +258,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `comments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `reports`
+--
+ALTER TABLE `reports`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `profiles`
