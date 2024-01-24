@@ -93,6 +93,13 @@ while($row = mysqli_fetch_assoc($result)) {
     </div>
 </div>
 
+<div id="notificationModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeNotificationModal()">&times;</span>
+        <p id="notificationMessage"></p>
+    </div>
+</div>
+
     <script>
     function openModal(postId) {
         document.getElementById('myModal').style.display = 'flex';
@@ -124,7 +131,16 @@ while($row = mysqli_fetch_assoc($result)) {
     }
     }
 
-    function submitReport() {
+    function openNotificationModal(message) {
+    document.getElementById('notificationModal').style.display = 'flex';
+    document.getElementById('notificationMessage').innerText = message;
+}
+
+function closeNotificationModal() {
+    document.getElementById('notificationModal').style.display = 'none';
+}
+
+function submitReport() {
     var reportTitle = document.querySelector(".option.selected").textContent.trim();
     var postId = document.getElementById('reportForm').dataset.postid;
 
@@ -144,10 +160,14 @@ while($row = mysqli_fetch_assoc($result)) {
 
         if (data.status === 'success') {
             closeModalw();
+            openNotificationModal('Zgłoszenie zostało pomyślnie wysłane.');
+        } else {
+            openNotificationModal('Wystąpił błąd podczas wysyłania zgłoszenia.');
         }
     })
     .catch(error => {
         console.error('Error:', error);
+        openNotificationModal('Wystąpił błąd podczas wysyłania zgłoszenia.');
     });
 }
 
