@@ -252,7 +252,20 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+ALTER TABLE `files`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
+ALTER TABLE `posts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+ALTER TABLE `posts`
+  ALTER `upvote` SET DEFAULT 0;
+
+ALTER TABLE `posts`
+  ALTER `downvote` SET DEFAULT 0;
+
+ALTER TABLE `posts`
+  ALTER `date` SET DEFAULT CURRENT_TIMESTAMP;
 --
 -- AUTO_INCREMENT for table `comments`
 --
